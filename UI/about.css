@@ -1,0 +1,372 @@
+@font-face {
+  font-family: jeju;
+  src: url(Jeju.ttf);
+}
+* {
+  box-sizing: boarder-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: jeju;
+}
+.in {
+  background-image: linear-gradient(
+    to left,
+    rgb(255, 255, 255),
+    rgba(221, 202, 202, 0.851),
+    rgb(229, 183, 183)
+  );
+  padding: 10px 150px 5px 150px;
+}
+.NavBar h2{
+  
+}
+li,
+a {
+  color: black;
+  text-decoration: none;
+  list-style: none;
+}
+a:hover{
+  color: rgb(233, 87, 87);
+}
+.sideBar{
+  display: none;
+}
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0 13px;
+  border-bottom: solid 1px black;
+  font-size: 25px;
+}
+nav ul li {
+  display: inline-block;
+  padding: 0 20px;
+}
+nav ul li a{
+  color: rgba(19, 19, 19, 0.571);
+}
+.contact {
+  color: rgba(183, 20, 20, 0.947);
+  margin-left: 160px;
+}
+.checkbtn, .xbtn{
+  float: right;
+  display: none;
+  margin-right: 40px;
+  cursor: pointer;
+}
+#check1, #check2{
+  display: none;
+}
+.intro {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 40px;
+  display: block;
+  align-items: center;
+  padding: 70px 0 40px;
+  max-width: 1200px;
+  background-image: linear-gradient(-43deg, red, brown, black);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.intro div {
+  padding: 10px 0 10px;
+}
+.brief {
+  font-size: 30px;
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+nav ul li,
+.brief {
+  color: rgb(107, 107, 107);
+}
+.pic{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: black;
+    align-items: center;
+}
+.thePic{
+  height: 350px;
+  width: 300px;
+  margin-bottom: 40px;
+
+}
+.thePic img{
+    border-radius: 0.5rem;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+.pic button{
+    border-radius: 0.5rem ;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+}
+.inSkills{
+  margin: 30px 0 30px;
+  padding: 0 150px 0 150px;
+  height: 330px;
+}
+.skills{
+  font-size: 30px;
+  float: right;
+}
+.skills h4, .skills h5, .skills ul{
+  margin: 20px;
+}
+.skills ul{
+  float: right;
+}
+.hobby{
+  padding: 0 150px 0 150px;
+  font-size: 30px;
+  text-align: center;
+  /* border: solid black; */
+}
+.hobbies{
+  margin: 60px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.hobb{
+  border-radius: 3rem;
+  background-color: grey;
+  /* border: solid black; */
+  height: 350px;
+  width: 200px;
+}
+.ino{
+  padding: 0 150px 0 150px;
+}
+.proj{
+  /* border: solid black; */
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+}
+.proj button{
+  color: white;
+  float: left;
+  padding: 8px 15px 8px 8px;
+  border: none;
+  background-color: rgb(160, 20, 20);
+  border-radius: 0.4rem;
+}
+.projects {
+  font-size: 40px;
+  width: 600px;
+}
+.portfolio {
+  width: 100%;
+  margin: 40px 10px 40px 10px;
+  display: flex;
+  place-items: center;
+  justify-content:baseline;
+}
+.portfolio li {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+padding: 30px;
+}
+.portfolio li div {
+  margin: 40px 0 40px;
+}
+.imageHold{
+  background-color: black;
+  height: 250px;
+  width: 400px;
+  border-radius: 0.5rem ;
+}
+.contactHolder {
+  margin: 100px 40px;
+  height: 250px;
+  background-color: black;
+  padding: 18px 40px;
+  border-radius: 0.7rem;
+}
+.contacts {
+  font-size: 30px;
+  background-color: rgb(160, 20, 20);
+  color: white;
+  padding: 40px;
+  padding-left: 60px;
+  height: 170px;
+  border-radius: 0.7rem;
+}
+.contacts h3 {
+  width: 400px;
+  padding-bottom: 40px;
+}
+.footerContainer{
+  display: flex;
+  margin-bottom: 100px ;
+}
+.BottomNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.BottomNav ul li{
+  display: inline-block;
+  padding: 0 5px;
+}
+@media (max-width: 600px){
+  .in{
+    padding: 5px 4px 5px 4px ;
+  }
+  .checkbtn{
+    display: block;
+    /* border: solid black; */
+    margin-top: 8px;
+  }
+  .sideBar{
+    background-color: antiquewhite;
+    padding: 20px;
+    display: block;
+    position: absolute;
+    transition: all .5s;
+    top: -0.1px;
+    left: -120%;
+    width: 70%;
+    height: 400px;
+  }
+  #check1:checked ~ .logo{
+    line-height: 10px;
+    background-color: aqua;
+  }
+  .xbtn{
+    display: block;
+  }
+  .sideBar nav ul li{
+    display: block;
+  }
+  .contact2{
+    color: rgba(183, 20, 20, 0.947);
+  }
+  .NavBar{
+    display: block;
+  }
+  .NavBar nav ul{
+    display: none
+  }
+  .intro{
+    margin-top: 30px;
+    font-size: 25px;
+    padding: 0px;
+    max-width: 200xp; 
+  }
+    .brief{
+    margin-top: 60px;
+    margin-left: 5px;
+    font-size: 20px;
+    width: 450px
+  }
+  .inSkills{
+  margin: 60px 0 0;
+  padding: 0 4px 0 4px;
+  height: 330px;
+}
+.skills{
+  font-size: 25px;
+  position: absolute;
+  right: 15%;
+}
+.skills h4, .skills h5, .skills ul{
+  margin: 20px 10px;
+}
+.skills ul{
+  position: absolute;
+  right: 10%;
+}
+.hobby{
+  margin-top: 5px;
+  padding: 0 4px 0 4px;
+  font-size: 25px;
+  text-align: left;
+  line-height: 35px;
+}
+.hobbies{
+  margin: 90px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.hobb{
+  border-radius: 3rem;
+  background-color: grey;
+  height: 300px;
+  width: 250px;
+  margin: 10px 0;
+}
+.ino{
+  padding: 5px 4px 5px 4px ;
+}
+.projects{
+  font-size: 25px;
+  width: 300px;
+}
+.proj{
+  margin: 60px 5px;
+}
+.proj button{
+  margin-right: 8px;
+}
+.portfolio{
+  flex-direction: column;
+}
+.portfolio li {
+  padding: 0px;
+  flex-direction: column;
+}
+.portfolio li div {
+  margin: 20px 0px;
+}
+.profile{
+  font-size: 23px;
+  flex-direction: column-reverse;
+  padding: 5px 4px 5px 4px ;
+}
+.profile{
+  padding: 20px;
+}
+  .contactHolder{
+    height: 250px;
+    width: 380px;
+    margin: 50px auto;
+  }
+  .contacts{
+    height: 180px;
+    font-size: 35px;
+    padding: 30px 15px;
+  }
+  .contacts h3{
+    font-size: 42px;
+    padding-bottom: 15px;
+  }
+  .footerContainer{
+    flex-direction: column;
+    align-items: center;
+  }
+  .BottomNav{
+    margin: 29px 
+  }
+  .footerContainer h4{
+    font-size: 25px;
+  }
+}

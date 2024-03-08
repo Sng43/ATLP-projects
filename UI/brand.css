@@ -1,0 +1,400 @@
+@font-face {
+  font-family: jeju;
+  src: url(Jeju.ttf);
+}
+* {
+  box-sizing: boarder-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: jeju;
+}
+  .in{
+    background-image: linear-gradient(
+    to left,
+    rgb(255, 255, 255),
+    rgba(221, 202, 202, 0.851),
+    rgb(229, 183, 183)
+  );
+  padding: 10px 150px 5px 150px;
+}
+.NavBar h2{
+  
+}
+li,
+a {
+  color: black;
+  text-decoration: none;
+  list-style: none;
+}
+a:hover{
+  color: rgb(233, 87, 87);
+}
+.sideBar{
+  display: none;
+}
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0 13px;
+  border-bottom: solid 1px black;
+  font-size: 25px;
+}
+nav ul li {
+  display: inline-block;
+  padding: 0 20px;
+}
+nav ul li a{
+  color: rgba(19, 19, 19, 0.571);
+}
+.contact {
+  color: rgba(183, 20, 20, 0.947);
+  margin-left: 160px;
+}
+.checkbtn, .xbtn{
+  float: right;
+  display: none;
+  margin-right: 40px;
+  cursor: pointer;
+}
+#check1, #check2{
+  display: none;
+}
+.intro {
+  margin-bottom: 20px;
+  font-size: 40px;
+  display: block;
+  align-items: center;
+  padding: 70px 0 30px;
+  max-width: 1200px;
+  background-image: linear-gradient(-43deg, red, brown, black);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.intro div {
+  padding: 10px 0 10px;
+}
+.intro2 {
+  display: flex;
+  align-items: center;
+}
+.intro2 div{
+  border: none;
+  border-radius: 0.5rem;
+  height: 90px;
+}
+img{
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+.brief {
+  font-size: 30px;
+  max-width: 1100px;
+  line-height: 45px;
+}
+.moreInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 60px 0 60px;
+}
+.more {
+  color: white;
+  padding: 8px 100px 8px 30px;
+  border: rgba(255, 217, 0, 0.195);
+  border-radius: 0.5em;
+  background-color: rgb(160, 20, 20);
+}
+.moreInfo ul li {
+  display: inline-block;
+}
+.moreInfo ul li button {
+  padding: 5px 40px 5px 20px;
+  border: none;
+  border-radius: 0.5em;
+  background-color: rgb(109, 109, 109);
+}
+nav ul li, .brief{
+  color: rgb(107, 107, 107);
+}
+.proj{
+  /* border: solid black; */
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+}
+.proj button{
+  color: white;
+  float: left;
+  padding: 8px 15px 8px 8px;
+  border: none;
+  background-color: rgb(160, 20, 20);
+  border-radius: 0.4rem;
+}
+.projects {
+  font-size: 40px;
+  width: 600px;
+}
+.portfolio {
+  width: 100%;
+  margin: 40px 10px 40px 10px;
+  display: flex;
+  place-items: center;
+  justify-content:baseline;
+}
+.portfolio li {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+padding: 30px;
+}
+.portfolio li div {
+  margin: 40px 0 40px;
+}
+.imageHold{
+  background-color: black;
+  height: 250px;
+  width: 400px;
+  border-radius: 0.5rem ;
+}
+.profile {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  background-image: linear-gradient(120deg, rgba(255, 7, 7, 0.853), rgb(92, 39, 39), rgb(41, 33, 33));
+  /* padding: 10px 50px 10px 40px; */
+  font-family: jeju;
+  font-size: 30px;
+  padding: 0px;
+  height: 700px;
+} 
+.profile .description {
+  text-align: left;
+  width: 600px;
+  display: block;
+  float: left;
+  margin: 0 100px 70px 0;
+}
+.description h3{
+  font-size: 50px;
+  line-height: 60px;
+}
+.description p{
+  line-height: 48px;
+}
+.description h3,  
+.description p {
+  margin: 50px 0 50px;
+}
+.description button {
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  padding: 8px 35px 8px 8px;
+  border: none;
+  background-color: rgb(255, 0, 0);
+  border-radius: 0.4rem;
+  margin: 90px 0 0 40px;
+  /* margin: 20px; */
+}
+.image {
+  height: 580px;
+  margin: 10px 50px 40px 0;
+}
+.image img{
+  width: 100%;
+  height: 100%;
+}
+.ino{
+  padding: 10px 150px 5px 150px;
+}
+.contactHolder {
+  margin: 100px 40px;
+  height: 250px;
+  background-color: black;
+  padding: 18px 40px;
+  border-radius: 0.7rem;
+}
+.contacts {
+  font-size: 30px;
+  background-color: rgb(160, 20, 20);
+  color: white;
+  padding: 40px;
+  padding-left: 60px;
+  height: 170px;
+  border-radius: 0.7rem;
+}
+.contacts h3 {
+  width: 400px;
+  padding-bottom: 40px;
+}
+.footerContainer{
+  display: flex;
+  margin-bottom: 100px ;
+}
+.BottomNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.BottomNav ul li{
+  display: inline-block;
+  padding: 0 5px;
+}
+@media screen and (max-width: 600px){
+  .in{
+    padding: 5px 4px 5px 4px ;
+  }
+  .checkbtn{
+    display: block;
+    /* border: solid black; */
+    margin-top: 8px;
+  }
+  .sideBar{
+    background-color: antiquewhite;
+    padding: 20px;
+    display: block;
+    position: absolute;
+    transition: all .5s;
+    top: -0.1px;
+    left: -120%;
+    width: 70%;
+    height: 400px;
+  }
+  #check1:checked ~ .logo{
+    line-height: 10px;
+    background-color: aqua;
+  }
+  .xbtn{
+    display: block;
+  }
+  .sideBar nav ul li{
+    display: block;
+  }
+  .contact2{
+    color: rgba(183, 20, 20, 0.947);
+  }
+  .NavBar{
+    display: block;
+  }
+  .NavBar nav ul{
+    display: none
+  }
+  .intro{
+    margin-top: 30px;
+    font-size: 25px;
+    padding: 0px;
+    max-width: 200xp; 
+  }
+  .intro2{
+    padding: 0px;
+  }
+  .intro1{
+    margin: 0px;
+    padding: 0px;
+  }
+  .intro3{
+    margin: 0px;
+    padding: 0px;
+  }
+  .intro2 div{
+    padding: 0px;
+    height: 120px;
+  }
+  .brief{
+    margin-top: 40px;
+    margin-left: 5px;
+    font-size: 20px;
+    width: 450px;
+    line-height: 25px;
+  }
+  .moreInfo{
+    flex-direction: column;
+    align-items: baseline;
+    margin: 80px 0 100px;
+  }
+  .more{
+    margin: 0px 10px 20px 
+  }
+  .moreInfo ul li button{
+    margin-right: 8px 
+  }
+  .projects{
+    font-size: 25px;
+    width: 300px;
+  }
+  .proj button{
+    margin-right: 8px;
+  }
+  .portfolio{
+    flex-direction: column;
+  }
+  .portfolio li {
+    padding: 0px;
+    flex-direction: column;
+  }
+  .portfolio li div {
+    margin: 20px 0px;
+  }
+  .profile{
+    font-size: 23px;
+    flex-direction: column-reverse;
+    padding: 5px 4px 5px 4px ;
+    padding: 20px;
+    height: 530px;
+     background-image: linear-gradient(360deg, rgba(255, 7, 7, 0.853), rgb(92, 39, 39), rgb(41, 33, 33));
+  }
+  .image{
+    margin: 40px auto;
+    height: 200px;
+  }
+  .profile .description{
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: center;
+    width: 80%
+  }
+  .description h3{
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .description p{
+    line-height: 25px;
+  }
+  .description button {
+    font-size: 15px;
+  }
+  .description h3,
+  .description p,
+  .description button {
+    margin: 15px 0;
+  }
+  .contactHolder{
+    height: 250px;
+    width: 380px;
+    margin: 50px auto;
+  }
+  .contacts{
+    height: 180px;
+    font-size: 35px;
+    padding: 30px 15px;
+  }
+  .contacts h3{
+    padding-bottom: 15px;
+  }
+  .footerContainer{
+    flex-direction: column;
+    align-items: center;
+  }
+  .BottomNav{
+    margin: 29px 
+  }
+  .footerContainer h4{
+    font-size: 25px;
+  }
+}

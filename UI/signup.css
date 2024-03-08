@@ -1,0 +1,38 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(210deg, rgba(165, 42, 42, 0.877), rgb(128, 37, 37), rgb(140, 117, 117)) ;
+}
+form{
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    width: 400px;
+    padding: 40px 0  10px;
+}
+input{
+    width: 250px;
+    height: 25px;
+    padding-left: 15px;
+    border-radius: 0.8rem;
+    border: none;
+    background-color: rgb(213, 213, 213);
+    margin: 10px;
+}
+button{
+    color: azure;
+    padding: 4px 20px;
+    margin: 40px 0 20px;
+    border: none;
+    border-radius: 0.8rem;
+    background-image: linear-gradient(210deg, rgba(165, 42, 42, 0.877), rgb(128, 37, 37), rgb(140, 117, 117))
+}
+p{
+    width: 170px;
+    text-align: center;
+}
