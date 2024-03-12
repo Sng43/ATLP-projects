@@ -1,0 +1,186 @@
+@font-face {
+  font-family: jeju;
+  src: url(Jeju.ttf);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: black;
+    text-decoration: none;
+    list-style: none;
+    font-family: jeju;
+}
+body {
+      background-image: linear-gradient(
+    to left,
+    rgb(255, 255, 255),
+    rgba(221, 202, 202, 0.851),
+    rgb(229, 183, 183)
+  );
+    padding: 20px 150px 70px;
+}
+.NavBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: solid black 1px;
+    margin-bottom: 70px;
+}
+.NavBar h2 a{
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+    list-style: none;
+    
+}
+.NavBar nav ul li{
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 70px;
+}
+.NavBar h2 a:hover{
+    color: rgb(227, 44, 44);
+}
+.NavBar nav ul li a:hover{
+    color: rgb(255, 0, 0);
+}
+nav ul li .contact{
+    margin-left: 120px;
+    color: rgb(224, 99, 99);
+}
+.intro{
+  background-image: linear-gradient(-43deg, red, brown, black);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.article{
+    padding: 30px 0;
+    /* border: solid; */
+    display: flex;
+    margin-bottom: 60px;
+}
+.article p{
+    padding: 25px;
+    /* border: solid; */
+    font-size: 25px;
+    width: 400px;
+    line-height: 35px;
+}
+.article-image{
+    width: 700px;
+    height: 400px;
+    border-radius: 0.8rem;
+    margin-right: 70px;
+}
+img{
+    border-radius: 0.8rem;
+    width: 100%;
+    height: 100%;
+}
+.more-info {
+    margin-top: 30px;
+}
+.more-info h4, .more-info p{
+    margin: 30px 0;
+}
+.more-info h4{
+    font-size: 40px;
+}
+.more-info p {
+    font-size: 25px;
+}
+.feedback {
+    border-radius: 0.8rem;
+    background-color: rgb(203, 202, 202);
+    padding: 30px 10px 30px 40px;
+    /* width:600px; */
+    margin: 60px 0
+}
+.feedback ul {
+    margin-bottom: 5px;
+}
+.feedback ul li {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 30px;
+    color: white;
+}
+.feedback input{
+    border: none;
+    display: block;
+    width: 450px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 0.9em;
+    background-color: white;
+    /* border: none; */
+    margin: 8px 0 15px;
+}
+.feedback button{
+    /* margin: 0 10px; */
+    padding: 8px 30px;
+    border: none;
+    font-size: 15px;
+    border-radius: 0.9rem;
+    background-image: linear-gradient(90deg, rgb(172, 0, 0),rgb(200, 41, 41), rgb(224, 121, 121));
+}
+.page{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 90px 0;
+}
+.page h4, .page h2{
+    font-size: 25px;
+}
+.prev p, .prev h4{
+    margin-left: 30px;
+}
+.next p, .next h4{
+    margin-right: 30px;
+}
+.next li{
+    text-align: right;
+}
+.prev p, .next p {
+    color: rgb(226, 21, 21);
+}
+.page:hover{
+    color: rgb(181, 57, 57);
+}
+.contactHolder {
+  margin: 100px 40px;
+  height: 250px;
+  background-color: black;
+  padding: 18px 40px;
+  border-radius: 0.7rem;
+}
+.contacts {
+  font-size: 30px;
+  background-color: rgb(160, 20, 20);
+  color: white;
+  padding: 40px;
+  padding-left: 60px;
+  padding-bottom: 30px;
+  border-radius: 0.7rem;
+}
+.contacts h3 {
+  width: 400px;
+  padding-bottom: 40px;
+}
+.footerContainer{
+  display: flex;
+  margin-bottom: 100px ;
+}
+.BottomNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.BottomNav ul li{
+  display: inline-block;
+  padding: 0 5px;
+}

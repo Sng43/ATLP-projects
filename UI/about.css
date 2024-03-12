@@ -19,8 +19,7 @@ body {
   );
   padding: 10px 150px 5px 150px;
 }
-.NavBar h2{
-  
+.NavBar h2 {
 }
 li,
 a {
@@ -28,10 +27,10 @@ a {
   text-decoration: none;
   list-style: none;
 }
-a:hover{
+a:hover {
   color: rgb(233, 87, 87);
 }
-.sideBar{
+.sideBar {
   display: none;
 }
 .NavBar {
@@ -46,20 +45,22 @@ nav ul li {
   display: inline-block;
   padding: 0 20px;
 }
-nav ul li a{
+nav ul li a {
   color: rgba(19, 19, 19, 0.571);
 }
 .contact {
   color: rgba(183, 20, 20, 0.947);
   margin-left: 160px;
 }
-.checkbtn, .xbtn{
+.checkbtn,
+.xbtn {
   float: right;
   display: none;
   margin-right: 40px;
   cursor: pointer;
 }
-#check1, #check2{
+#check1,
+#check2 {
   display: none;
 }
 .intro {
@@ -88,75 +89,88 @@ nav ul li,
 .brief {
   color: rgb(107, 107, 107);
 }
-.pic{
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-    background-color: black;
-    align-items: center;
+.pic {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  align-items: center;
+  padding: 10px 400px 5px 400px;
 }
-.thePic{
+.thePic {
   height: 350px;
   width: 300px;
   margin-bottom: 40px;
-
 }
-.thePic img{
-    border-radius: 0.5rem;
-    height: 100%;
-    width: 100%;
-    background-color: white;
+.found {
+  background-color: brown;
+  border-radius: 0.8rem;
 }
-.pic button{
-    border-radius: 0.5rem ;
-    padding: 2px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: red;
+.found p {
+  margin: 30px;
 }
-.inSkills{
+.thePic img {
+  border-radius: 0.5rem;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+.pic button {
+  border-radius: 0.5rem;
+  padding: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: red;
+}
+.inSkills {
   margin: 30px 0 30px;
   padding: 0 150px 0 150px;
   height: 330px;
 }
-.skills{
+.skills {
   font-size: 30px;
   float: right;
 }
-.skills h4, .skills h5, .skills ul{
+.skills h4,
+.skills h5,
+.skills ul {
   margin: 20px;
 }
-.skills ul{
+.skills ul {
   float: right;
 }
-.hobby{
+.hobby {
   padding: 0 150px 0 150px;
   font-size: 30px;
   text-align: center;
   /* border: solid black; */
 }
-.hobbies{
+.hobbies {
   margin: 60px 20px;
   display: flex;
   justify-content: space-between;
 }
-.hobb{
+.hobb {
   border-radius: 3rem;
   background-color: grey;
   /* border: solid black; */
   height: 350px;
   width: 200px;
 }
-.ino{
+.hobb img {
+  border-radius: 3rem;
+  width: 100%;
+  height: 100%;
+}
+.ino {
   padding: 0 150px 0 150px;
 }
-.proj{
+.proj {
   /* border: solid black; */
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: space-between;
 }
-.proj button{
+.proj button {
   color: white;
   float: left;
   padding: 8px 15px 8px 8px;
@@ -173,23 +187,23 @@ nav ul li,
   margin: 40px 10px 40px 10px;
   display: flex;
   place-items: center;
-  justify-content:baseline;
+  justify-content: baseline;
 }
 .portfolio li {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
 }
 .portfolio li div {
   margin: 40px 0 40px;
 }
-.imageHold{
+.imageHold {
   background-color: black;
   height: 250px;
   width: 400px;
-  border-radius: 0.5rem ;
+  border-radius: 0.5rem;
 }
 .contactHolder {
   margin: 100px 40px;
@@ -211,9 +225,9 @@ padding: 30px;
   width: 400px;
   padding-bottom: 40px;
 }
-.footerContainer{
+.footerContainer {
   display: flex;
-  margin-bottom: 100px ;
+  margin-bottom: 100px;
 }
 .BottomNav {
   display: flex;
@@ -221,152 +235,158 @@ padding: 30px;
   justify-content: center;
   margin: 0 auto;
 }
-.BottomNav ul li{
+.BottomNav ul li {
   display: inline-block;
   padding: 0 5px;
 }
-@media (max-width: 600px){
-  .in{
-    padding: 5px 4px 5px 4px ;
+@media (max-width: 600px) {
+  .in {
+    padding: 5px 4px 5px 4px;
   }
-  .checkbtn{
+  .checkbtn {
     display: block;
     /* border: solid black; */
     margin-top: 8px;
   }
-  .sideBar{
+  .sideBar {
     background-color: antiquewhite;
     padding: 20px;
     display: block;
     position: absolute;
-    transition: all .5s;
+    transition: all 0.5s;
     top: -0.1px;
     left: -120%;
     width: 70%;
     height: 400px;
   }
-  #check1:checked ~ .logo{
+  #check1:checked ~ .logo {
     line-height: 10px;
     background-color: aqua;
   }
-  .xbtn{
+  .xbtn {
     display: block;
   }
-  .sideBar nav ul li{
+  .sideBar nav ul li {
     display: block;
   }
-  .contact2{
+  .contact2 {
     color: rgba(183, 20, 20, 0.947);
   }
-  .NavBar{
+  .NavBar {
     display: block;
   }
-  .NavBar nav ul{
-    display: none
+  .NavBar nav ul {
+    display: none;
   }
-  .intro{
+  .intro {
     margin-top: 30px;
     font-size: 25px;
     padding: 0px;
-    max-width: 200xp; 
+    max-width: 200xp;
   }
-    .brief{
+  .brief {
     margin-top: 60px;
     margin-left: 5px;
     font-size: 20px;
-    width: 450px
+    width: 450px;
   }
-  .inSkills{
-  margin: 60px 0 0;
-  padding: 0 4px 0 4px;
-  height: 330px;
-}
-.skills{
-  font-size: 25px;
-  position: absolute;
-  right: 15%;
-}
-.skills h4, .skills h5, .skills ul{
-  margin: 20px 10px;
-}
-.skills ul{
-  position: absolute;
-  right: 10%;
-}
-.hobby{
-  margin-top: 5px;
-  padding: 0 4px 0 4px;
-  font-size: 25px;
-  text-align: left;
-  line-height: 35px;
-}
-.hobbies{
-  margin: 90px 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-.hobb{
-  border-radius: 3rem;
-  background-color: grey;
-  height: 300px;
-  width: 250px;
-  margin: 10px 0;
-}
-.ino{
-  padding: 5px 4px 5px 4px ;
-}
-.projects{
-  font-size: 25px;
-  width: 300px;
-}
-.proj{
-  margin: 60px 5px;
-}
-.proj button{
-  margin-right: 8px;
-}
-.portfolio{
-  flex-direction: column;
-}
-.portfolio li {
-  padding: 0px;
-  flex-direction: column;
-}
-.portfolio li div {
-  margin: 20px 0px;
-}
-.profile{
-  font-size: 23px;
-  flex-direction: column-reverse;
-  padding: 5px 4px 5px 4px ;
-}
-.profile{
-  padding: 20px;
-}
-  .contactHolder{
+  .pic {
+    padding: 5px 4px 5px 4px;
+    flex-direction: column;
+  }
+  .inSkills {
+    margin: 60px 0 0;
+    padding: 0 4px 0 4px;
+    height: 330px;
+  }
+  .skills {
+    font-size: 25px;
+    position: absolute;
+    right: 15%;
+  }
+  .skills h4,
+  .skills h5,
+  .skills ul {
+    margin: 20px 10px;
+  }
+  .skills ul {
+    position: absolute;
+    right: 10%;
+  }
+  .hobby {
+    margin-top: 5px;
+    padding: 0 4px 0 4px;
+    font-size: 25px;
+    text-align: left;
+    line-height: 35px;
+  }
+  .hobbies {
+    margin: 90px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hobb {
+    border-radius: 3rem;
+    background-color: grey;
+    height: 300px;
+    width: 250px;
+    margin: 10px 0;
+  }
+  .ino {
+    padding: 5px 4px 5px 4px;
+  }
+  .projects {
+    font-size: 25px;
+    width: 300px;
+  }
+  .proj {
+    margin: 60px 5px;
+  }
+  .proj button {
+    margin-right: 8px;
+  }
+  .portfolio {
+    flex-direction: column;
+  }
+  .portfolio li {
+    padding: 0px;
+    flex-direction: column;
+  }
+  .portfolio li div {
+    margin: 20px 0px;
+  }
+  .profile {
+    font-size: 23px;
+    flex-direction: column-reverse;
+    padding: 5px 4px 5px 4px;
+  }
+  .profile {
+    padding: 20px;
+  }
+  .contactHolder {
     height: 250px;
     width: 380px;
     margin: 50px auto;
   }
-  .contacts{
+  .contacts {
     height: 180px;
     font-size: 35px;
     padding: 30px 15px;
   }
-  .contacts h3{
+  .contacts h3 {
     font-size: 42px;
     padding-bottom: 15px;
   }
-  .footerContainer{
+  .footerContainer {
     flex-direction: column;
     align-items: center;
   }
-  .BottomNav{
-    margin: 29px 
+  .BottomNav {
+    margin: 29px;
   }
-  .footerContainer h4{
+  .footerContainer h4 {
     font-size: 25px;
   }
 }

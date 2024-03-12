@@ -1,0 +1,99 @@
+@font-face {
+  font-family: jeju;
+  src: url(Jeju.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: jeju;
+}
+.sidebar {
+  width: 300px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    -43deg,
+    rgba(165, 42, 42, 0.877),
+    rgb(128, 37, 37),
+    black
+  );
+  border-radius: 0.7rem;
+  margin: 5px 10px 0 30px;
+}
+.logo h2 {
+  color: white;
+  margin: 30px;
+}
+.logo:hover {
+  color: rgb(255, 103, 103);
+}
+.sidebar-menu {
+  margin-top: 65px;
+}
+.sidebar-menu li {
+  width: 100%;
+  margin-bottom: 60px;
+  padding-left: 50px;
+}
+.sidebar-menu a {
+  padding-left: 20px;
+  display: block;
+  color: white;
+  font-size: 20px;
+}
+main {
+  margin: 5px 20px 0 360px;
+  padding: 20px 15px 0;
+  border-radius: 0.7rem;
+  background: rgba(219, 218, 218, 0.599);
+  min-height: calc(100vh - 20px);
+}
+.welcome {
+  margin: 5px 0 0 27px;
+  font-size: 25px;
+  padding-left: 10px;
+}
+.welcome h1 {
+  margin-bottom: 5px;
+}
+.cards {
+  margin: 40px 0 0 30px;
+  display: flex;
+  width: 1000px;
+  justify-content: space-between;
+}
+.editable{
+    background-color: white;
+    width: 650px;
+    height: 300px;
+    border-radius: 0.7rem;
+}
+.next {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 140px 20px 50px;
+}
+.next button{
+    padding: 10px 30px;
+    border-radius: 0.7rem;
+    border: solid 1px rgb(193, 0, 0);
+    color: rgb(194, 1, 1);
+}
+.blogs{ 
+    margin-left: 30px;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+.article {
+    border-radius: 0.7rem;
+    background-color: white;
+    height: 190px;
+    width: 300px;
+}
