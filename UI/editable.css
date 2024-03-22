@@ -61,58 +61,50 @@ main {
 .welcome h1 {
   margin-bottom: 5px;
 }
-.cards {
-  margin: 40px 0 0 30px;
-  display: flex;
-  width: 1000px;
-  justify-content: space-between;
-  color: gray;
+.form-container{
+    width: 80%;
+    margin: 50px auto;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+form #title{
+    width: 80%;
+    font-size: 30px;
+    border-radius: 0.8rem;
+    padding: 8px;
+    border: none;
 }
 
-.editable {
-  background-color: white;
-  width: 650px;
-  height: 300px;
-  border-radius: 0.7rem;
+form #image{
+    padding: 8px;
+    border: none;
+    width: 80%;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 0.8rem;
 }
-.editable h1 {
-  margin: auto;
+form #brief{
+    padding: 20px;
+    border: none;
+    width: 90%;
+    font-size: 15px;
+    border-radius: 0.8rem;
 }
-.next {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 30px 140px 20px 50px;
+form #full{
+    padding: 20px;
+    border: none;
+    width: 90%;
+    font-size: 15px;
+    border-radius: 0.8rem;
 }
-.next button {
-  padding: 10px 30px;
-  border-radius: 0.7rem;
-  border: solid 1px rgb(193, 0, 0);
-  color: rgb(194, 1, 1);
-}
-.blogs {
-  margin-left: 30px;
-  width: 1000px;
-  display: flex;
-  justify-content: space-between;
-}
-.article {
-  border-radius: 0.7rem;
-  background-color: white;
-  height: 190px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-}
-.article .image-container {
-  height: 50%;
-}
-
-.article h1 {
-  margin: 10px;
-}
-.cards div {
-  display: flex;
-  flex-direction: column;
-  border: solid black 2px;
+button{
+    width: 130px;
+    font-size: 10px;
+    padding: 10px 30px;
+    border-radius: 0.7rem;
+    border: solid 1px rgb(193, 0, 0);
+    color: rgb(194, 1, 1);
 }

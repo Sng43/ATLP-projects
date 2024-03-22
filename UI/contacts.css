@@ -10,17 +10,7 @@
 body {
   font-family: jeju;
 }
-.in {
-  background-image: linear-gradient(
-    to left,
-    rgb(255, 255, 255),
-    rgba(221, 202, 202, 0.851),
-    rgb(229, 183, 183)
-  );
-  padding: 10px 150px 5px 150px;
-}
-.NavBar h2{
-  
+.NavBar h2 {
 }
 li,
 a {
@@ -28,11 +18,8 @@ a {
   text-decoration: none;
   list-style: none;
 }
-a:hover{
+a:hover {
   color: rgb(233, 87, 87);
-}
-.sideBar{
-  display: none;
 }
 .NavBar {
   display: flex;
@@ -42,25 +29,44 @@ a:hover{
   border-bottom: solid 1px black;
   font-size: 25px;
 }
-nav ul li {
+.nav-menu {
+  display: flex;
+  /* border: solid; */
+}
+.nav-item {
   display: inline-block;
   padding: 0 20px;
 }
-nav ul li a{
+.nav-item a {
   color: rgba(19, 19, 19, 0.571);
 }
 .contact {
   color: rgba(183, 20, 20, 0.947);
-  margin-left: 160px;
+  margin-left: 250px;
 }
-.checkbtn, .xbtn{
-  float: right;
+
+.in {
+  background-image: linear-gradient(
+    to left,
+    rgb(255, 255, 255),
+    rgba(221, 202, 202, 0.851),
+    rgb(229, 183, 183)
+  );
+  padding: 10px 150px 5px 150px;
+}
+.hamburger {
   display: none;
-  margin-right: 40px;
   cursor: pointer;
+  margin-right: 15px;
 }
-#check1, #check2{
-  display: none;
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
 }
 .intro {
   text-align: center;
@@ -84,7 +90,7 @@ nav ul li a{
   margin: 0 auto;
   margin-bottom: 70px;
 }
-nav ul li a{
+nav ul li a {
   color: rgba(19, 19, 19, 0.571);
 }
 .brief {
@@ -95,26 +101,21 @@ nav ul li a{
   justify-content: center;
   margin: 0 auto;
   background-color: black;
-padding: 10px 150px 5px 150px;
+  padding: 10px 150px 5px 150px;
   font-family: jeju;
   /* font-size: 30px; */
 }
-.state div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* border: solid white 2px; */
-    width: 49%;
-    text-align: center;
-}
-.infos{
+.state div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: solid white 2px; */
   width: 49%;
-    background-color: brown;
-    width: 40%;
+  text-align: center;
 }
 .description h3,
-.description p{
+.description p {
   font-size: 30px;
 }
 .description h3 {
@@ -124,80 +125,120 @@ padding: 10px 150px 5px 150px;
   margin: 15px 0 30px;
   color: azure;
 }
-.description .buttons{
+.description .buttons {
   display: flex;
   flex-direction: row;
   border: none;
 }
-.buttons button{
-padding: 5px 10px;
-font-size: 15px;
-background-color: grey;
-margin: 0 10px;
-height: 30px;
-width: 100px;
-border-radius: 0.9rem;
+.buttons button {
+  padding: 5px 10px;
+  font-size: 15px;
+  background-color: grey;
+  margin: 0 10px;
+  height: 30px;
+  width: 100px;
+  border-radius: 0.9rem;
 }
-.form{
-  padding: 40px ;
+.state {
+  align-items: center;
 }
-.infos{
-  border-radius: 0.5rem;
+.state div:first-child {
+  margin-top: 30px;
+  font-size: 20px;
+}
+.state div {
+  width: 90%;
+  padding: 4px;
+}
+#form {
+  width: 90%;
+  margin: auto 0 auto;
+  padding: 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  background-color: rgb(186, 41, 41);
+}
+
+#form button {
   padding: 10px;
+  margin: 10px 350px 10px 1px;
+  width: 30%;
+  color: white;
+  background-color: rgb(126, 2, 2);
+  border: none;
+  border-radius: 4px;
+}
+
+.input-control {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  justify-content: ;
+  /* width: 300px;
+  border: solid 2px whi; */
 }
-.infos input, .infos textarea{
-  background-color: transparent;
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
-  border-bottom: 1px solid rgb(148, 0, 0);
-  float: left;
-  margin: 10px;
-  width: 90%;
-}
-.infos textarea{
-  height: 80px;
-}
-.infos input{
-  height: 30px;
-}
-.infos button{
-  width: 80px;
-  height: 25px;
-  background-color: rgb(237, 49, 49);
+
+.input-control input,
+.input-control textarea {
+  color: rgb(255, 255, 255);
+  background-color: rgb(186, 41, 41);
   border: none;
-  border-radius: 0.3rem;
-  margin: 10px;
+  border-bottom: 2px solid rgb(104, 3, 3);
+  /* display: block; */
+  font-size: 12px;
+  padding: 10px 3px;
+  width: 100%;
 }
-.inSkills{
+.input-control input::placeholder,
+.input-control textarea::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.input-control input:focus {
+  outline: 0;
+}
+
+.input-control.success input {
+  border-color: #09c372;
+}
+
+.input-control.error input,
+.input-control.error textarea {
+  border-color: #ff3860;
+}
+
+.input-control .error {
+  color: #ff3860;
+  font-size: 9px;
+  height: 13px;
+}
+
+.inSkills {
   margin: 30px 0 30px;
   padding: 0 150px 0 150px;
   height: 330px;
 }
-.skills{
+.skills {
   font-size: 30px;
   float: right;
 }
-.skills h4, .skills h5, .skills ul{
+.skills h4,
+.skills h5,
+.skills ul {
   margin: 20px;
 }
-.skills ul{
+.skills ul {
   float: right;
 }
-.ino{
+.ino {
   padding: 0 150px 0 150px;
 }
-.proj{
+.proj {
   /* border: solid black; */
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: space-between;
 }
-.proj button{
+.proj button {
   float: left;
   padding: 5px 15px 5px 5px;
   border: solid 1px rgb(160, 20, 20);
@@ -213,23 +254,23 @@ border-radius: 0.9rem;
   margin: 40px 10px 40px 10px;
   display: flex;
   place-items: center;
-  justify-content:baseline;
+  justify-content: baseline;
 }
 .portfolio li {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
 }
 .portfolio li div {
   margin: 40px 0 40px;
 }
-.imageHold{
+.imageHold {
   background-color: black;
   height: 250px;
   width: 400px;
-  border-radius: 0.5rem ;
+  border-radius: 0.5rem;
 }
 .contactHolder {
   margin: 100px 40px;
@@ -251,9 +292,9 @@ padding: 30px;
   width: 400px;
   padding-bottom: 40px;
 }
-.footerContainer{
+.footerContainer {
   display: flex;
-  margin-bottom: 100px ;
+  margin-bottom: 100px;
 }
 .BottomNav {
   display: flex;
@@ -261,163 +302,197 @@ padding: 30px;
   justify-content: center;
   margin: 0 auto;
 }
-.BottomNav ul li{
+.BottomNav ul li {
   display: inline-block;
   padding: 0 5px;
 }
-@media (max-width: 600px) {
-  .in{
-    padding: 5px 4px 5px 4px ;
+@media (max-width: 800px) {
+  .hamburger {
+    display: block;
   }
-  .checkbtn{
-        display: block;
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .nav-menu {
+    background-image: linear-gradient(
+      to left,
+      rgb(255, 255, 255),
+      rgb(221, 202, 202),
+      rgb(229, 183, 183)
+    );
+    position: fixed;
+    left: -100%;
+    top: 60px;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .NavBar {
+    font-size: 20px;
+  }
+  .nav-item {
+    margin: 40px 0;
+  }
+  .nav-menu.active {
+    left: 0;
+  }
+  .contact {
+    margin: 40px auto;
     /* border: solid black; */
-    margin-top: 8px;
   }
-  .sideBar{
-    background-color: antiquewhite;
-    padding: 20px;
-    display: block;
-    position: absolute;
-    transition: all .5s;
-    top: -0.1px;
-    left: -120%;
-    width: 70%;
-    height: 400px;
+  .in {
+    padding: 5px 4px 5px 4px;
   }
-  #check1:checked ~ .logo{
-    line-height: 10px;
-    background-color: aqua;
-  }
-  .xbtn{
-    display: block;
-  }
-  .sideBar nav ul li{
-    display: block;
-  }
-  .contact2{
-    color: rgba(183, 20, 20, 0.947);
-  }
-  .NavBar{
-    display: block;
-  }
-  .NavBar nav ul{
-    display: none
-  }
-  .intro{
+  .intro {
     margin-top: 30px;
     font-size: 25px;
     padding: 0px;
-    max-width: 200xp; 
+    max-width: 200xp;
   }
-  .intro2{
+  .intro2 {
     padding: 0px;
   }
-  .intro1{
+  .intro1 {
     margin: 0px;
     padding: 0px;
   }
-  .intro3{
+  .intro3 {
     margin: 0px;
     padding: 0px;
   }
-  .intro2 div{
+  .intro2 div {
     padding: 0px;
     height: 120px;
   }
-  .brief{
+  .brief {
     margin: 60px auto;
     font-size: 20px;
-    width: 450px
+    width: 450px;
   }
-  .state{
-    padding: 5px 4px 5px 4px ;
+  .state {
+    padding: 5px 4px 5px 4px;
     flex-direction: column;
     align-items: center;
   }
-  .state div:first-child{
+  .state div:first-child {
     margin-top: 30px;
     font-size: 20px;
   }
-  .state div{
+  .state div {
     width: 90%;
     padding: 4px;
   }
-  .description h3{
-    
+  .description h3 {
   }
-  .description p{
+  .description p {
     font-size: 20px;
     line-height: 25px;
   }
-  .description .buttons{
+  .description .buttons {
     align-items: left;
     margin-bottom: 20px;
-}
-  .inSkills{
-  margin: 60px 0 0;
-  padding: 0 4px 0 4px;
-  height: 330px;
-}
-.skills{
-  font-size: 25px;
-  position: absolute;
-  right: 15%;
-}
-.skills h4, .skills h5, .skills ul{
-  margin: 20px 10px;
-}
-.skills ul{
-  position: absolute;
-  right: 10%;
-}
-.ino{
-  padding: 5px 4px 5px 4px ;
-}
-.projects{
-  font-size: 25px;
-  width: 300px;
-}
-.proj{
-  margin: 60px 5px;
-}
-.proj button{
-  margin-right: 8px;
-}
-.portfolio{
-  flex-direction: column;
-}
-.portfolio li {
-  padding: 0px;
-  flex-direction: column;
-}
-.portfolio li div {
-  margin: 20px 0px;
-}
-.profile{
-  padding: 20px;
-}
-  .contactHolder{
+  }
+  .inSkills {
+    margin: 60px 0 0;
+    padding: 0 4px 0 4px;
+    height: 330px;
+  }
+  .skills {
+    font-size: 25px;
+    position: absolute;
+    right: 15%;
+  }
+  .skills h4,
+  .skills h5,
+  .skills ul {
+    margin: 20px 10px;
+  }
+  .skills ul {
+    position: absolute;
+    right: 10%;
+  }
+  .ino {
+    padding: 5px 4px 5px 4px;
+  }
+  .projects {
+    font-size: 25px;
+    width: 300px;
+  }
+  .proj {
+    margin: 60px 5px;
+  }
+  .proj button {
+    margin-right: 8px;
+  }
+  .portfolio {
+    flex-direction: column;
+  }
+  .portfolio li {
+    padding: 0px;
+    flex-direction: column;
+  }
+  .portfolio li div {
+    margin: 20px 0px;
+  }
+  .profile {
+    padding: 20px;
+  }
+  .contactHolder {
     height: 250px;
     width: 380px;
     margin: 50px auto;
   }
-  .contacts{
+  .contacts {
     height: 180px;
     font-size: 35px;
     padding: 30px 15px;
   }
-  .contacts h3{
+  .contacts h3 {
     padding-bottom: 15px;
   }
-  .footerContainer{
+  .footerContainer {
     flex-direction: column;
     align-items: center;
   }
-  .BottomNav{
-    margin: 29px 
+  .BottomNav {
+    margin: 29px;
   }
-  .footerContainer h4{
+  .footerContainer h4 {
     font-size: 25px;
+  }
+}
+@media (max-width: 1200px) {
+  .in {
+    padding: 10px 10px 5px 10px;
+  }
+  .NavBar {
+    font-size: 20px;
+  }
+  .contact {
+    margin-left: 170px;
+  }
+  .state {
+    padding: 10px 10px 5px 10px;
+  }
+
+  .state {
+    padding: 5px 10px 5px 10px;
+    align-items: center;
+  }
+  .state div:first-child {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+  .state div {
+    width: 90%;
+    padding: 4px;
   }
 }

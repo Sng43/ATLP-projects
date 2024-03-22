@@ -11,25 +11,25 @@
     </head>
     <body>
           <div class="in">
-        <header class="NavBar">
-            <input type="checkbox" name="" id="check1">
-        
-            <label for="check1" class="checkbtn">
-                <i class="fas fa-bars"></i>
-            </label>
-            <h2><a href="index.html" class="logo">Senga Emmy</a></h2>
-            <nav>
-                <ul>
-                    <li><a href="about.html">About me</a></li>
-                    <li><a href="work.html">Work</a></li>
-                    <li><a href="blogs.html">Blogs</a></li>
-                    <li>
-        
-                        <h2><a href="contacts.html" class="contact">Contact me ></a></h2>
+        <header>
+            <nav class="NavBar">
+                <h2><a href="index.html" class="logo">Senga Emmy</a></h2>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="about.html">About me</a></li>
+                    <li class="nav-item"><a href="work.html">Work</a></li>
+                    <li class="nav-item"><a href="blogs.html">Blogs</a></li>
+                    </li>
+                    <a href="contacts.html" class="contact">Contact me ></a>
                     </li>
                 </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </nav>
         </header>
+        <script src="script.js"></script>
             <div class="intro">
                 <div class="intro1">
                     <h1>Contact me</h1>
@@ -49,14 +49,31 @@
                         <button>Discord</button>
                     </div>
                 </div>
-                <div class="form">
-                    <form class="infos">
-                        <label for="name"><input type="text" id="name" placeholder="Name"></label>
-                        <label for="email"><input type="email" id="email" placeholder="Email"></label>
-                        <label for="phone"><input type="[0-9]" id="phone" placeholder="Phone"></label>
-                        <label for="description"><textarea name="project" id="description" cols="30" rows="10" placeholder="project description"></textarea></label>
-                        <button>submit</button>
-                    </form>
+                <div class="container">
+                  <form id="form" action="index.html" onsubmit="contact()">
+                   <div class="input-control">
+                    <label for="nam"></label>
+                    <input id="nam" name="nam" type="text" placeholder="Name">
+                    <div class="error"></div>
+                  </div>
+                  <div class="input-control">
+                    <label for="email"></label>
+                    <input id="email" name="email" type="text" placeholder="Email">
+                    <div class="error"></div>
+                  </div>
+                  <div class="input-control">
+                    <label for="phone"></label>
+                        <input type="[0-9]" id="phone" placeholder="Phone">
+                    <div class="error"></div>
+                  </div>
+                  <div class="input-control">
+                    <label for="description"></label>
+                    <textarea name="project" id="description" cols="30" rows="10" placeholder="Project Description"></textarea>
+                    <div class="error"></div>
+                  </div>
+                   <button type="submit">Submit</button>
+                  </form>
+                    <script src="contact.js"></script>
                 </div>
             </div>
 <div class="in">

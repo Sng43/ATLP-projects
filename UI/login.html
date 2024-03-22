@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <Title>Log In</Title>
+    <title>Log In</title>
     <meta charset="utf-8">
-    <meta name="viewport" name="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="login.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -18,11 +18,12 @@
     <div class="contain">
         <div class="log">
             <h2>Login to Your Account</h2>
-            <form action="">
+            <form id="loginForm">
                 <label for="email"><input type="email" id="email" placeholder="Email"></label>
-                <label for="Password"><input type="password" id="password" placeholder="Password"></label>
+                <label for="password"><input type="password" id="password" placeholder="Password"></label>
                 <a href="#">forgot password?</a>
-                <button>Login</button>
+                <button type="submit">Login</button>
+                <div class="error" id="error"></div>
             </form>
         </div>
         <div class="sign">
@@ -30,5 +31,7 @@
             <button><a href="signup.html">Sign Up</a></button>
         </div>
     </div>
-    </body>
-    </html>
+    <script src="login.js"></script>
+</body>
+
+</html>
