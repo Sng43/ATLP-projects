@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const blogsDiv = document.querySelector(".blogs");
 
-  // Retrieve data from local storage
-  const articles = JSON.parse(localStorage.getItem("Blogs")) || [];
+  const articles = JSON.parse(localStorage.getItem("blog")) || [];
 
-  // Loop through each article and create HTML elements
   articles.forEach((articleData) => {
     const articleContainer = document.createElement("div");
     articleContainer.classList.add("row");
@@ -16,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
     picDiv.classList.add("picz");
 
     const img = document.createElement("img");
-    img.src = articleData.image; // Assuming image URL is stored in the article object
+    img.src = articleData.image;
 
     const h3 = document.createElement("h3");
     h3.textContent = articleData.title;
 
     const p = document.createElement("p");
-    p.textContent = articleData.content; // Assuming content is stored in the article object
+    p.textContent = articleData.content;
 
     const actionDiv = document.createElement("div");
     actionDiv.classList.add("action");

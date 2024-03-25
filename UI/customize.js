@@ -1,34 +1,46 @@
 const form = document.getElementById("content");
-const blogTitle = form["title"];
-const blogImage = form["image"];
-const blogIntro = form["intro"];
-const blogAll = form["all"];
+const title = form["title"];
+const imageInput = form["image"];
+const intro = form["intro"];
+const full = form["all"];
 
 var blog = JSON.parse(localStorage.getItem("Blogs")) || [];
 
-const keepInfo = (title, intro, all) => {
-  if (!Array.isArray(blog)) {
-    blog = [];
-  }
-  blog.push({
-    title,
-    intro,
-    all,
-  });
+  const toLocal = (title, image, intro, full) => {
+    const entry = {
+      title,
+      image, // Make sure each entry in blog has an image property
+      intro,
+      full,
+    };
+    blog.push(entry);
 
-  localStorage.setItem("Blogs", JSON.stringify(blog));
-  return { title, intro, all };
-};
-form.onsubmit = (e) => {
-  e.preventDefault();
+    localStorage.setItem("blog", JSON.stringify(blog));
 
-  const newTitle = blogTitle.value;
-  const newIntro = blogIntro.value;
-  const newAll = blogAll.value;
+    return entry;
+  };
 
-  const newBlog = keepInfo(newTitle, newIntro, newAll);
+    const reader = new FileReader();
 
-  window.location.assign("Admin-blog.html");
+    imageInput.addEventListener("change", function () {
+      const file = imageInput.files[0];
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    });
 
-  console.log(newBlog);
-};
+  reader.onload = function () {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const t = title.value;
+      const i = reader.result;
+      const it = intro.value;
+      const f = full.value;
+
+      const deal = toLocal(t, i, it, f);
+
+      console.log(deal);
+      window.location.assign("Admin-blog.html")
+    });
+  };

@@ -1,7 +1,6 @@
 const form = document.getElementById("form");
 const nam = document.getElementById("nam");
 const email = document.getElementById("email");
-const phone = document.getElementById("phone");
 const description = document.getElementById("description");
 
 const setError = (element, message) => {
@@ -41,7 +40,7 @@ const contact = (e) => {
 
   validateInputs();
 
-  if (form.querySelectorAll(".success").length === 4) {
+  if (form.querySelectorAll(".success").length === 3) {
     const emailValue = email.value.trim();
     const nameValue = nam.value.trim();
     const descritpionValue = description.value.trim();
@@ -65,12 +64,15 @@ const contact = (e) => {
     localStorage.setItem("proj", json);
     console.log(localStorage.setItem("proj", json));
   }
+  
+  emailValue = ""
+  nameValue = ""
+  descritpionValue = ""
 };
 
 const validateInputs = () => {
   const emailValue = email.value.trim();
   const nameValue = nam.value.trim();
-  const phoneValue = phone.value.trim();
   const descritpionValue = description.value.trim();
 
   if (nameValue === "") {
@@ -86,14 +88,6 @@ const validateInputs = () => {
   } else {
     setSuccess(email);
   }
-  if (phoneValue === "") {
-    setError(phone, "Phone is required");
-  } else if (!validPhone(phoneValue)) {
-    setError(phone, "Provide a valid phone number");
-  } else {
-    setSuccess(phone);
-  }
-
   if (descritpionValue === "") {
     setError(description, "Please Enter Description");
   } else {
