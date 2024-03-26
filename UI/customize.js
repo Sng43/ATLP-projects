@@ -4,12 +4,15 @@ const imageInput = form["image"];
 const intro = form["intro"];
 const full = form["all"];
 
-var blog = JSON.parse(localStorage.getItem("Blogs")) || [];
+console.log(title.value)
 
+var blog = JSON.parse(localStorage.getItem("blog")) || [];
+
+console.log(blog)
   const toLocal = (title, image, intro, full) => {
     const entry = {
       title,
-      image, // Make sure each entry in blog has an image property
+      image, 
       intro,
       full,
     };
