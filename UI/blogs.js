@@ -48,10 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const readPostLink = document.createElement("a");
     const url = `article.html?title=${encodeURIComponent(articleData.title)}`
-    readPostLink.href =url // Assuming the link should lead to the full article
+    readPostLink.href = url 
     readPostLink.textContent = "Read post";
 
-    // Appending elements to their respective parent elements
     picDiv.appendChild(img);
     holderDiv.appendChild(picDiv);
     holderDiv.appendChild(h3);
@@ -62,8 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
     actionDiv.appendChild(readPostLink);
     holderDiv.appendChild(actionDiv);
     articleContainer.appendChild(holderDiv);
-
-    // Append the article container to the blogs div
     blogsDiv.appendChild(articleContainer);
   });
 });

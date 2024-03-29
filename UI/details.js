@@ -15,13 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(currentIndex);
 
   function displayArticle(index) {
-    // Clear the detail container
     detail.innerHTML = "";
 
-    // Retrieve the current article
     const currentArticle = articles[index];
 
-    // Create elements for the article details
     const articleContainer = document.createElement("div");
     articleContainer.classList.add("container");
 
@@ -51,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     detail.appendChild(articleContainer);
   }
 
-  // Display the first article initially
   displayArticle(currentIndex);
 
   next.addEventListener("click", () => {
