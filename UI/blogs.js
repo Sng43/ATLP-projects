@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
     commentLabel.appendChild(commentCheckbox);
 
     const readPostLink = document.createElement("a");
-    readPostLink.href = "#"; // Assuming the link should lead to the full article
+    const url = `article.html?title=${encodeURIComponent(articleData.title)}`
+    readPostLink.href =url // Assuming the link should lead to the full article
     readPostLink.textContent = "Read post";
 
     // Appending elements to their respective parent elements

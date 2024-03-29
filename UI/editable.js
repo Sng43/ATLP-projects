@@ -1,4 +1,5 @@
 const form = document.getElementById("content");
+const urlInfo = new URLSearchParams(window.location.search);
 const blogTitle = form["title"];
 const blogImage = form["image"];
 const blogIntro = form["intro"];
@@ -6,28 +7,36 @@ const blogAll = form["all"];
 
 const articles = JSON.parse(localStorage.getItem("blog")) || [];
 
-console.log(articles)
-if (articles.length == 0)
-{
-  blogTitle.value = ""
-  blogIntro.value = ""
-  blogAll.value = ""
+blogTitle.value = urlInfo.get("title");
 
-}else {
-  blogTitle.value = articles[0].title;
-  blogIntro.value = articles[0].intro;
-  blogAll.value = articles[0].full;
-}
-console.log(blogTitle.value)
+const index = articles.findIndex((rec) => rec.title === blogTitle.value);
 
-form.onsubmit = (e) => {
-  e.preventDefault();
+blogIntro.value = articles[index].intro;
+blogAll.value = articles[index].full;
 
-  articles[0].title = blogTitle.value;
-  articles[0].intro = blogIntro.value;
-  articles[0].full = blogAll.value;
+const picture = new FileReader();
 
-  localStorage.setItem("blogs", JSON.stringify(articles));
 
-  window.location.assign("Admin-blog.html");
+blogImage.addEventListener("change", function () {
+  const pic = blogImage.files[0];
+  if (pic) {
+    picture.readAsDataURL(pic);
+  }
+});
+
+picture.onload = () => {
+  
+  form.onsubmit = (e) => {
+    e.preventDefault();
+    
+    var title = blogTitle.value;
+    const image = picture.result;
+    var intro = blogIntro.value;
+    var full = blogAll.value;
+    
+    articles[index] = { title, image, intro, full };
+    localStorage.setItem("blog", JSON.stringify(articles));
+    window.location.assign("Admin-blog.html");
+  };
 };
+  

@@ -2,9 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const detail = document.querySelector(".details");
   const next = document.querySelector(".next");
   const previous = document.querySelector(".prev");
+  const heart = document.querySelector(".fa-solid.fa-heart");
+  const comment = document.querySelector(".fa-solid.fa-comment");
+  const share = document.querySelector(".fa-solidfa-paper-plane");
+  const urlInfo = new URLSearchParams(window.location.search);
 
   const articles = JSON.parse(localStorage.getItem("blog"));
-  let currentIndex = 0;
+  let currentIndex = articles.findIndex(
+    (rec) => rec.title === urlInfo.get("title")
+  );
+
+  console.log(currentIndex);
 
   function displayArticle(index) {
     // Clear the detail container
@@ -62,5 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       console.log("No previous article available");
     }
+  });
+
+  heart.addEventListener("click", () => {
+    heart.style.color = "red";
   });
 });
