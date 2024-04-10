@@ -42,7 +42,9 @@ export const register = async (req: express.Request, res: express.Response) => {
     try{
         const {email, username, password} = req.body;
 
-        if (!email || !username || !password) {
+        const password2 = req.body.password2
+
+        if (!email || !username || !password || !password2 || password !== password2) {
             return res.status(400);
         }
 
@@ -64,6 +66,7 @@ export const register = async (req: express.Request, res: express.Response) => {
             }
         })
 
+        console.log(newUser)
         return res.redirect('login.html')
     }catch (error){
         console.log(error)
