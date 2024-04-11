@@ -22,8 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true}))
 
 const server = http.createServer(app);
 
-server.listen(8000, () => {
-    console.log("server running at http://localhost:8000")
+server.listen(7000, () => {
+    console.log("server running at http://localhost:7000")
 })
 
 const MONGO_URL = 'mongodb+srv://Sng:senga@cluster0.rrmemwy.mongodb.net/'
