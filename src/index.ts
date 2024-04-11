@@ -16,10 +16,21 @@ app.use(cors({
 
 app.use(compression());
 app.use(cookieParser());
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static('UI'));
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(express.urlencoded());
+
+// app.post('/signup.html', (req:express.Request, res:express.Response) => {
+//     const {email, username, password} = req.body
+//     console.log(email, username, password)
+//     if(!email || !username || !password){
+//         return res.status(400).send({message: "failed"})
+//     }
+
+//     return res.status(200).send({status: "received"})
+// })
 
 const server = http.createServer(app);
 

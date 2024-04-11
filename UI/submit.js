@@ -28,6 +28,8 @@ const isValidEmail = (email) => {
   return re.test(String(email).toLowerCase());
 };
 
+const mainUrl = "http://localhost:7000"
+
 const signup = (e) => {
 e.preventDefault();  
 
@@ -44,21 +46,22 @@ e.preventDefault();
       password: passwordValue,
     };
 
-    if (localStorage.getItem('data') == null){
-      localStorage.setItem('data', '[]')
-    }
-
-    var old_data = JSON.parse(localStorage.getItem('data'))
-
-    old_data.push(new_data)
-
-    var json = JSON.stringify(old_data)
-
-    localStorage.setItem('data', json)
+   getData(new_data)
 
     window.location.assign("Admin-dash.html");
   }
 };
+
+async function getData (data) {
+  const res = await fetch(mainUrl +'/signup.html', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  console.log(res)
+}
 
 const validateInputs = () => {
   const emailValue = email.value.trim();

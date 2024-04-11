@@ -29,8 +29,6 @@ export const login = async (req: express.Request, res: express.Response) => {
 
         res.cookie('AUTH-SNG', user.authentication.sessionToken, {domain: 'localhost', path: '/'})
 
-        return res.redirect('Admin-dash.html')
-
 
     }catch (error){
         console.log(error);
@@ -42,9 +40,7 @@ export const register = async (req: express.Request, res: express.Response) => {
     try{
         const {email, username, password} = req.body;
 
-        const password2 = req.body.password2
-
-        if (!email || !username || !password || !password2 || password !== password2) {
+        if (!email || !username || !password ) {
             return res.status(400);
         }
 
@@ -67,7 +63,6 @@ export const register = async (req: express.Request, res: express.Response) => {
         })
 
         console.log(newUser)
-        return res.redirect('login.html')
     }catch (error){
         console.log(error)
         return res.status(400)
