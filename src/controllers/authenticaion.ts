@@ -7,19 +7,19 @@ export const login = async (req: express.Request, res: express.Response) => {
         const { email, password } = req.body;
 
         if (!email || !password){
-            return res.sendStatus(400)
+            return res.status(400).send({message: "wrong messages"})
         }
 
         const user = await getUserByEmail(email).select('+authentication.salt +authentication.password');
         
         if(!user) {
-            return res.sendStatus(403);
+            return res.status(403).send({message: "please provide valid email"});
         }
 
         const expectedHash = authentication(user.authentication.salt, password)
 
         if (user.authentication.password !== expectedHash){
-            return res.sendStatus(403)
+            return res.status(403).send({message: "wrong password"})
         }
 
         const salt = random()
@@ -28,6 +28,8 @@ export const login = async (req: express.Request, res: express.Response) => {
         await user.save();
 
         res.cookie('AUTH-SNG', user.authentication.sessionToken, {domain: 'localhost', path: '/'})
+
+        return res.status(200).send(user)
 
 
     }catch (error){
@@ -41,13 +43,13 @@ export const register = async (req: express.Request, res: express.Response) => {
         const {email, username, password} = req.body;
 
         if (!email || !username || !password ) {
-            return res.status(400);
+            return res.status(400).send({message: "please fillout everything"});
         }
 
         const existingEmail = await getUserByEmail(email);
 
         if (existingEmail){
-            return res.status(400)
+            return res.status(400).send({message: "please enter non existant email"})
         }
 
         const salt =random()
@@ -61,8 +63,9 @@ export const register = async (req: express.Request, res: express.Response) => {
                 password: authentication(salt, password),
             }
         })
-
         console.log(newUser)
+
+        return res.status(200).send(newUser)
     }catch (error){
         console.log(error)
         return res.status(400)
