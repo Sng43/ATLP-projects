@@ -18,11 +18,11 @@
     <div class="contain">
         <div class="log">
             <h2>Login to Your Account</h2>
-            <form id="loginForm" action="/auth/login" method="post" onclick="signup(e)">
+            <form id="loginForm" action="/auth/login" method="post">
                 <label for="email"><input type="email" id="email" placeholder="Email"></label>
                 <label for="password"><input type="password" id="password" placeholder="Password"></label>
                 <a href="#">forgot password?</a>
-                <button type="submit">Login</button>
+                <button type="submit" id="login">Login</button>
                 <div class="error" id="error"></div>
             </form>
         </div>
