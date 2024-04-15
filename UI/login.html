@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Log In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="NavBar">
+        <h2><a href="index.html">Senga Emmy</a></h2>
+    </header>
+    <div class="contain">
+        <div class="log">
+            <h2>Login to Your Account</h2>
+            <form id="loginForm" action="/auth/login" method="post">
+                <label for="email"><input type="email" id="email" placeholder="Email"></label>
+                <label for="password"><input type="password" id="password" placeholder="Password"></label>
+                <a href="#">forgot password?</a>
+                <button type="submit" id="login">Login</button>
+                <div class="error" id="error"></div>
+            </form>
+        </div>
+        <div class="sign">
+            <h2>New Here?</h2>
+            <button><a href="signup.html">Sign Up</a></button>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
