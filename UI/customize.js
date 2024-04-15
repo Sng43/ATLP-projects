@@ -4,46 +4,47 @@ const imageInput = form["image"];
 const intro = form["intro"];
 const full = form["all"];
 
-console.log(title.value)
+const createBlog = async (data) => {
+  try {
+    const response = await fetch("http://localhost:7000/blogs/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      console.log("Blog created successfully");
+      window.location.assign("Admin-blog.html"); // Redirect to admin blog page after successful creation
+    } else {
+      console.error("Failed to create blog:", response.statusText);
+    }
+  } catch (error) {
+    console.error("Error creating blog:", error);
+  }
+};
 
-var blog = JSON.parse(localStorage.getItem("blog")) || [];
+const reader = new FileReader();
 
-console.log(blog)
-  const toLocal = (title, image, intro, full) => {
-    const entry = {
-      title,
-      image, 
-      intro,
-      full,
+imageInput.addEventListener("change", function () {
+  const file = imageInput.files[0];
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+});
+
+reader.onload = function () {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = {
+      Title: title.value,
+      Image: reader.result,
+      Body: intro.value,
+      // Assuming 'all' corresponds to the full content of the blog
+      // Adjust property names accordingly if needed
     };
-    blog.push(entry);
 
-    localStorage.setItem("blog", JSON.stringify(blog));
-
-    return entry;
-  };
-
-    const reader = new FileReader();
-
-    imageInput.addEventListener("change", function () {
-      const file = imageInput.files[0];
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    });
-
-  reader.onload = function () {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const t = title.value;
-      const i = reader.result;
-      const it = intro.value;
-      const f = full.value;
-
-      const deal = toLocal(t, i, it, f);
-
-      console.log(deal);
-      window.location.assign("Admin-blog.html")
-    });
-  };
+    createBlog(data);
+  });
+};
