@@ -53,7 +53,7 @@ e.preventDefault();
 };
 
 async function getData (data) {
-  const res = await fetch(mainUrl +'/signup.html', {
+  const res = await fetch(mainUrl +'/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

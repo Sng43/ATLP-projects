@@ -2,7 +2,7 @@ function login() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
 
-  fetch("http://localhost:7000/login.html", {
+  fetch("http://localhost:7000/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

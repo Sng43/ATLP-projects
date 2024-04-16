@@ -1,12 +1,12 @@
-import { createBlogs, getBlogByTitle, deleteBlogs, getBlogById, getBlogs } from '../db/users/blogs/blogs';
+import { createBlogs, getBlogByTitle, deleteBlogs, getBlogById, getBlogs, blogsModel } from '../db/users/blogs/blogs';
 import express from 'express';
 
 
 export const createBlog = async (req: express.Request, res:express.Response) => {
     try{
-        const {Title, Image, Body} = req.body;
+        const {Title, Image, Intro ,Body} = req.body;
 
-        if (!Title || !Image || !Body) {
+        if (!Title || !Image || !Intro || !Body) {
             return res.status(403).json({message: "Title, Image, or Body is missing."});
         }
 
@@ -19,6 +19,7 @@ export const createBlog = async (req: express.Request, res:express.Response) => 
         const newBlog = await createBlogs({
             Title,
             Image,
+            Intro,
             Body
         });
 
@@ -57,17 +58,22 @@ export const deleteBlog = async (req:express.Request, res:express.Response) => {
 export const updateBlog = async (req: express.Request, res: express.Response) => {
     try {
         const { id } = req.params;
-        const {Title, Image, Body} = req.body;
+        const {Title, Image,Intro ,Body} = req.body;
     
-        if (!Title || !Image || !Body) {
+        if (!Title || !Image || !Intro ||!Body) {
             return res.status(400).json({message: "cheack again Somethong is missing"});
         }
     
         const blog = await getBlogById(id);
     
-        blog.Title = Title,
-        blog.Image = Image,
+        blog.Title = Title
+        blog.Image = Image
+        blog.Intro = Intro
         blog.Body = Body
+
+        await blog.save();
+
+        return res.status(200).json(blog)
     }catch(error){
         console.log(error);
         return res.status(400).json(error)
