@@ -1,8 +1,8 @@
 const form = document.getElementById("content");
-const title = form["title"];
+const titleInput = form["title"];
 const imageInput = form["image"];
-const intro = form["intro"];
-const full = form["all"];
+const introInput = form["intro"];
+const bodyInput = form["all"];
 
 const createBlog = async (data) => {
   try {
@@ -15,7 +15,7 @@ const createBlog = async (data) => {
     });
     if (response.ok) {
       console.log("Blog created successfully");
-      window.location.assign("Admin-blog.html"); // Redirect to admin blog page after successful creation
+      window.location.assign("Admin-blog.html");
     } else {
       console.error("Failed to create blog:", response.statusText);
     }
@@ -38,11 +38,10 @@ reader.onload = function () {
     e.preventDefault();
 
     const data = {
-      Title: title.value,
+      Title: titleInput.value,
       Image: reader.result,
-      Body: intro.value,
-      // Assuming 'all' corresponds to the full content of the blog
-      // Adjust property names accordingly if needed
+      Intro: introInput.value,
+      Body: bodyInput.value,
     };
 
     createBlog(data);

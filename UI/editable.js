@@ -3,9 +3,9 @@ const urlInfo = new URLSearchParams(window.location.search);
 const blogTitle = form.querySelector("#title");
 const blogImage = form.querySelector("#image");
 const blogIntro = form.querySelector("#intro");
-const blogAll = form.querySelector("#all");
+const blogBody = form.querySelector("#body");
 
-const updateArticle = async (title, image, intro, full) => {
+const updateArticle = async (title, image, intro, body) => {
   try {
     const response = await fetch(
       `http://localhost:7000/blog/${encodeURIComponent(title)}`,
@@ -14,7 +14,12 @@ const updateArticle = async (title, image, intro, full) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ Image: image, Title: title, Body: full }),
+        body: JSON.stringify({
+          Title: title,
+          Image: image,
+          Intro: intro,
+          Body: body,
+        }),
       }
     );
     if (response.ok) {
@@ -29,8 +34,8 @@ const updateArticle = async (title, image, intro, full) => {
 };
 
 blogTitle.value = urlInfo.get("Title");
-blogIntro.value = urlInfo.get("Body");
-blogAll.value = urlInfo.get("Body");
+blogIntro.value = urlInfo.get("Intro");
+blogBody.value = urlInfo.get("Body");
 
 const picture = new FileReader();
 
@@ -48,8 +53,8 @@ picture.onload = () => {
     const title = blogTitle.value;
     const image = picture.result;
     const intro = blogIntro.value;
-    const full = blogAll.value;
+    const body = blogBody.value;
 
-    updateArticle(title, image, intro, full);
+    updateArticle(title, image, intro, body);
   };
 };
