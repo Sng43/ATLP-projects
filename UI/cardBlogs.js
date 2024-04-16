@@ -32,8 +32,8 @@ articles.forEach((articleData) => {
 articleContainer.addEventListener("click", () => {
   const url = `editable.html?title=${encodeURIComponent(
     articleData.title
-  )}&image=${encodeURIComponent(articleData.image)}&intro=${encodeURIComponent(articleData.intro)}&all=${encodeURIComponent(
-    articleData.all
+  )}&intro=${encodeURIComponent(articleData.intro)}&all=${encodeURIComponent(
+    articleData.full
   )}`;
   window.location.href = url;
 });
