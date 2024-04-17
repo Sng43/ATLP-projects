@@ -1,4 +1,4 @@
-import { createBlogs, getBlogByTitle, deleteBlogs, getBlogById, getBlogs, blogsModel } from '../db/users/blogs/blogs';
+import { createBlogs, getBlogByTitle, deleteBlogs, getBlogs, blogsModel } from '../db/users/blogs/blogs';
 import express from 'express';
 
 
@@ -57,15 +57,15 @@ export const deleteBlog = async (req:express.Request, res:express.Response) => {
 
 export const updateBlog = async (req: express.Request, res: express.Response) => {
     try {
-        const { id } = req.params;
+        const { title } = req.params;
         const {Title, Image,Intro ,Body} = req.body;
     
         if (!Title || !Image || !Intro ||!Body) {
             return res.status(400).json({message: "cheack again Somethong is missing"});
         }
     
-        const blog = await getBlogById(id);
-    
+        const blog = await getBlogByTitle(title);
+
         blog.Title = Title
         blog.Image = Image
         blog.Intro = Intro

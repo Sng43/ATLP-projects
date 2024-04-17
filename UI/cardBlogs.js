@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           articleData.Title
         )}&intro=${encodeURIComponent(
           articleData.Intro
-        )}&all=${encodeURIComponent(articleData.Body)}`;
+        )}&body=${encodeURIComponent(articleData.Body)}`;
         window.location.href = url;
       });
 

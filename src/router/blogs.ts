@@ -7,5 +7,5 @@ export default (router: express.Router) => {
     router.get("/blogs", getAllBlogs)
     router.post("/blogs/create", isAuthenticated ,createBlog);
     router.delete("/blog/:id", isAuthenticated, deleteBlog);
-    router.patch("/blog/:id", isAuthenticated, updateBlog);
+    router.patch("/blog/:title", isAuthenticated, updateBlog);
 }
