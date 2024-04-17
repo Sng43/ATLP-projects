@@ -79,3 +79,19 @@ export const updateBlog = async (req: express.Request, res: express.Response) =>
         return res.status(400).json(error)
     }
 }
+
+export const getABlog = async (req: express.Request, res: express.Response) => {
+    try{
+        const {title} = req.params;
+
+        if(!title){
+            return res.status(400).json({message: "There is no title"})
+        }
+
+        const theOne = await getBlogByTitle(title);
+
+        return res.status(200).json(theOne)
+    }catch(error){
+        return res.status(400).json(error)
+    }
+}

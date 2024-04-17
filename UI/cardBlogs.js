@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       heading.textContent = articleData.Title;
 
       const brief = document.createElement("p");
-      brief.textContent = articleData.Body;
+      brief.textContent = articleData.Intro;
 
       articleContainer.appendChild(heading);
       articleContainer.appendChild(brief);

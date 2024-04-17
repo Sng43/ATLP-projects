@@ -1,60 +1,74 @@
 const form = document.getElementById("content");
-const urlInfo = new URLSearchParams(window.location.search);
-const blogTitle = form.querySelector("#title");
-const blogImage = form.querySelector("#image");
-const blogIntro = form.querySelector("#intro");
-const blogBody = form.querySelector("#body");
+const blogTitle = form["title"];
+const blogImage = form["image"];
+const blogIntro = form["intro"];
+const blogAll = form["all"];
 
-const updateArticle = async (title, image, intro, body) => {
+async function fetchBlogData(title) {
   try {
-    const response = await fetch(
-      `http://localhost:7000/blog/${encodeURIComponent(title)}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          Title: title,
-          Image: image,
-          Intro: intro,
-          Body: body,
-        }),
-      }
-    );
-    if (response.ok) {
-      console.log("Article updated successfully!");
-      window.location.assign("Admin-blog.html");
-    } else {
-      console.error("Failed to update article:", response.statusText);
+    const response = await fetch(`http://localhost:7000/blog/${title}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
+    return await response.json();
   } catch (error) {
-    console.error("Error updating article:", error);
+    console.error("Error fetching blog data:", error);
+    return null;
   }
+}
+
+const getUrlParameter = (name) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
 };
+const titleFromUrl = getUrlParameter("title");
 
-blogTitle.value = urlInfo.get("Title");
-blogIntro.value = urlInfo.get("Intro");
-blogBody.value = urlInfo.get("Body");
+console.log(titleFromUrl)
 
-const picture = new FileReader();
+if (titleFromUrl) {
+  fetchBlogData(titleFromUrl).then((blogData) => {
+    if (blogData) {
+      blogTitle.value = blogData.Title;
+      // blogImage.value = blogData.Image;
+      blogIntro.value = blogData.Intro;
+      blogAll.value = blogData.Body;
+    } else {
+      console.error("Blog not found");
+    }
+  });
+}
 
-blogImage.addEventListener("change", function () {
-  const pic = blogImage.files[0];
-  if (pic) {
-    picture.readAsDataURL(pic);
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const t = blogTitle.value;
+  const i = blogImage.value;
+  const it = blogIntro.value;
+  const f = blogAll.value;
+
+  try {
+    const response = await fetch(`http://localhost:7000/blog/${titleFromUrl}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: t,
+        image: i,
+        intro: it,
+        full: f,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    console.log(data);
+    window.location.assign("Admin-blog.html");
+  } catch (error) {
+    console.error("There was a problem with your fetch operation:", error);
+    // Handle errors here
   }
 });
-
-picture.onload = () => {
-  form.onsubmit = (e) => {
-    e.preventDefault();
-
-    const title = blogTitle.value;
-    const image = picture.result;
-    const intro = blogIntro.value;
-    const body = blogBody.value;
-
-    updateArticle(title, image, intro, body);
-  };
-};
