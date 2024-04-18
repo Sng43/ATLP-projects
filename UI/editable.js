@@ -69,6 +69,5 @@ form.addEventListener("submit", async (e) => {
     window.location.assign("Admin-blog.html");
   } catch (error) {
     console.error("There was a problem with your fetch operation:", error);
-    // Handle errors here
   }
 });
