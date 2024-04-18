@@ -41,7 +41,7 @@ reader.onload = function () {
       Title: titleInput.value,
       Image: reader.result,
       Intro: introInput.value,
-      Body: bodyInput.value,
+      Body: bodyInput.value
     };
 
     createBlog(data);

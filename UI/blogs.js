@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       h3.textContent = articleData.Title; 
 
       const p = document.createElement("p");
-      p.textContent = articleData.Body; 
+      p.textContent = articleData.Intro; 
 
       const actionDiv = document.createElement("div");
       actionDiv.classList.add("action");

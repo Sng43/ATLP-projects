@@ -16,6 +16,25 @@ async function fetchBlogData(title) {
     return null;
   }
 }
+async function editBlog(title, data) {
+   try {
+    const response = await fetch(`http://localhost:7000/blog/${title}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("There was a problem with your fetch operation:", error);
+    return null;
+  }
+}
 
 const getUrlParameter = (name) => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -37,37 +56,31 @@ if (titleFromUrl) {
     }
   });
 }
+console.log(titleFromUrl);
+const reader = new FileReader();
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const t = blogTitle.value;
-  const i = blogImage.value;
-  const it = blogIntro.value;
-  const f = blogAll.value;
-
-  try {
-    const response = await fetch(`http://localhost:7000/blog/${titleFromUrl}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: t,
-        image: i,
-        intro: it,
-        full: f,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    const data = await response.json();
-    console.log(data);
-    window.location.assign("Admin-blog.html");
-  } catch (error) {
-    console.error("There was a problem with your fetch operation:", error);
+blogImage.addEventListener("change", function () {
+  const file = blogImage.files[0];
+  if (file) {
+    reader.readAsDataURL(file);
   }
 });
+
+reader.onload = function () {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      Title: blogTitle.value,
+      Image: reader.result,
+      Intro: blogIntro.value,
+      Body: blogAll.value,
+    };
+
+    editBlog(titleFromUrl, data)
+
+    window.location.assign("Admin-blog.html");
+  });
+
+}
+ 
