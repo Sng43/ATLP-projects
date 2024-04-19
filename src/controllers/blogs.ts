@@ -1,4 +1,4 @@
-import { createBlogs, getBlogByTitle, deleteBlogs, getBlogs, blogsModel } from '../db/users/blogs/blogs';
+import { createBlogs, getBlogByTitle, deleteBlogs, getBlogs, blogsModel } from '../db/blogs/blogs';
 import express from 'express';
 
 
