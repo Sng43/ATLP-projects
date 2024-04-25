@@ -31,7 +31,7 @@ export const updateUser = async  (req: express.Request, res: express.Response) =
         const { username } = req.body;
 
         if(!username){
-            return res.status(403);
+            return res.status(403).json({message: 'please fillout the username'});
         }
 
         const user = await getUserById(id)

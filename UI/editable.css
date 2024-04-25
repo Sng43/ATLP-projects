@@ -100,7 +100,12 @@ form #full{
     font-size: 15px;
     border-radius: 0.8rem;
 }
-button{
+.btns{
+  border: solid black 2px;
+  display: flex;
+
+}
+.edit{
     width: 130px;
     font-size: 10px;
     padding: 10px 30px;

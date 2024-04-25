@@ -35,7 +35,7 @@ export const getAllBlogs = async (req: express.Request, res: express.Response) =
     try{
         const blogs = await getBlogs();
         
-        return res.status(400).json(blogs)
+        return res.status(200).json(blogs)
     }catch (error){
         console.log(error);
         return res.status(400).json(error);
