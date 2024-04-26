@@ -54,12 +54,23 @@ main {
   min-height: calc(100vh - 20px);
 }
 .welcome {
+  display: flex;
+  justify-content: space-between;
   margin: 5px 0 0 27px;
   font-size: 25px;
   padding-left: 10px;
 }
 .welcome h1 {
   margin-bottom: 5px;
+}
+.welcome a {
+  margin: 20px 80px;
+}
+.welcome button {
+  padding: 10px 30px;
+  border-radius: 0.7rem;
+  border: solid 1px rgb(193, 0, 0);
+  color: rgb(194, 1, 1);
 }
 .cards {
   margin: 40px 0 0 30px;
@@ -84,46 +95,99 @@ main {
   align-items: center;
   margin: 30px 140px 20px 50px;
 }
-.next button {
-  padding: 10px 30px;
-  border-radius: 0.7rem;
-  border: solid 1px rgb(193, 0, 0);
-  color: rgb(194, 1, 1);
+.slider .blogs {
+  width: 900px;
+  height: 460px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 29px;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
-.blogs {
-  /* border: black solid; */
-  margin-left: 30px;
-  width: 1000px;
-  height: 1000px;
+.blogs::-webkit-scrollbar {
+  display: none;
+}
+.wraper {
+  margin: 30px 50px;
+  width: 85%;
+  border: solid black 1px;
+}
+.wraper .slider-scroll {
+  height: 20px;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
+.slider-scroll .slide-track{
+  height: 2px;
+  width: 100%;
+  background: #ccc;
+  position: relative;
+  border-radius: 4px;
+
+}
+
+.slider-scroll:hover .slide-track {
+  height: 4px;
+}
+.slide-track .scroll-thumb{
+  height: 2px;
+  width: 50%;
+  position: absolute;
+  background: #000;
+  border-radius: inherit;
+  cursor: grab;
+}
+.slide-track .scroll-thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  bottom: -10px;
+}
+
+.slider-scroll .slide-track:active {
+  cursor: grabbing;
+  height: 8px;
+  top: -2px;
+}
+
 .article {
   border-radius: 0.7rem;
   background-color: white;
-  height: 190px;
-  width: 300px;
+  height: 450px;
+  width: 400px;
   display: flex;
   flex-direction: column;
+  object-fit: cover;
 }
 .article .image-container {
   height: 50%;
 }
 
 .article h1 {
-  margin: 10px;
+  margin: 30px 40px;
+  background-image: linear-gradient(45deg, red, brown, black);
+  text-align: end;
+  background-clip: text;
+  color: transparent;
+}
+.article p {
+  margin: 0px 10px;
 }
 .cards div {
   display: flex;
   flex-direction: column;
   border: solid black 2px;
   border: solid black;
-}
-.image-container{
   border-radius: 0.5rem;
-  
+}
+.image-container {
+  border-radius: 0.5rem;
 }
 .image-container img {
+  border-radius: 0.5rem 0.5rem 0 0;
   width: 100%;
   height: 100%;
 }
