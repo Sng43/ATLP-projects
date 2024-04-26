@@ -48,7 +48,7 @@ e.preventDefault();
 
    getData(new_data)
 
-    window.location.assign("Admin-dash.html");
+    window.location.assign("login.html");
   }
 };
 
