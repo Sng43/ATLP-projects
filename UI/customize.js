@@ -24,26 +24,24 @@ const createBlog = async (data) => {
   }
 };
 
-const reader = new FileReader();
-
 imageInput.addEventListener("change", function () {
+  const reader = new FileReader();
   const file = imageInput.files[0];
   if (file) {
     reader.readAsDataURL(file);
   }
+  reader.onload = function () {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = {
+        Title: titleInput.value,
+        Image: reader.result,
+        Intro: introInput.value,
+        Body: bodyInput.value,
+      };
+
+      createBlog(data);
+    });
+  };
 });
-
-reader.onload = function () {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const data = {
-      Title: titleInput.value,
-      Image: reader.result,
-      Intro: introInput.value,
-      Body: bodyInput.value
-    };
-
-    createBlog(data);
-  });
-};
