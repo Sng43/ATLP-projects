@@ -1,6 +1,19 @@
 import express from 'express';
 import { createComment, getComments } from '../db/comments/comments';
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Comment:
+ *       type: object
+ *       required:
+ *         - comment
+ *       properties:
+ *         comment:
+ *           type: string
+ *           default: pleasure doing business with you
+ */
 
 export const getComment = async (req: express.Request, res:express.Response) => {
     try{

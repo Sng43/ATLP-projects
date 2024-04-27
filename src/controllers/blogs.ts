@@ -2,6 +2,32 @@ import { createBlogs, getBlogByTitle, deleteBlogs, getBlogs, blogsModel } from '
 import express from 'express';
 
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     CreateABlog:
+ *       type: object
+ *       required:
+ *         - Title
+ *         - Image
+ *         - Intro
+ *         - Body
+ *       properties:
+ *         Title:
+ *           type: string
+ *           default: A test run
+ *         Image:
+ *           type: string
+ *           default: Image URL
+ *         Intro:
+ *           type: string
+ *           default: Introduction
+ *         Body:
+ *           type: string
+ *           default: A large yapping session.
+ */
+
 export const createBlog = async (req: express.Request, res:express.Response) => {
     try{
         const {Title, Image, Intro ,Body} = req.body;

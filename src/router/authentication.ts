@@ -22,7 +22,7 @@ export default (router: express.Router) => {
      *           description: User registered successfully     
      */
     router.post('/signup', register)
-        /**
+    /**
      * @openapi
      * paths:
      *   '/login':

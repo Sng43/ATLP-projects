@@ -1,6 +1,27 @@
 import {getQueries, getQueryByEmail, getQueryByName, createQuery, deleteQuery} from '../db/Query/query';
 import express from 'express';
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Query:
+ *       type: object
+ *       required:
+ *         - Name
+ *         - Email
+ *         - Description
+ *       properties:
+ *         Name:
+ *           type: string
+ *           default: Emmy
+ *         Email:
+ *           type: string
+ *           default: daemmy@gmail.com
+ *         Description:
+ *           type: string
+ *           default: Pleasure doing business with you.
+ */
 
 export const makeQuery = async (req: express.Request, res:express.Response) => {
     try{
