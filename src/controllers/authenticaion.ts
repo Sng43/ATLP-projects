@@ -2,6 +2,24 @@ import express from 'express';
 import { createUser, getUserByEmail } from '../db/users/users';
 import { authentication, random } from '../helpers/index';
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     CreateUserInputForLogin:
+ *       type: object
+ *       required:
+ *         - email
+ *         - password
+ *       properties:
+ *         email:
+ *           type: string
+ *           default: daemmy@gmail.com
+ *         password:
+ *           type: string
+ *           default: qwert12345
+ */
+
 export const login = async (req: express.Request, res: express.Response) => {
     try{
         const { email, password } = req.body;
@@ -37,6 +55,28 @@ export const login = async (req: express.Request, res: express.Response) => {
         return res.status(400)
     }
 }
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     CreateUserInputForSignUp:
+ *       type: object
+ *       required:
+ *         - email
+ *         - username
+ *         - password
+ *       properties:
+ *         email:
+ *           type: string
+ *           default: daemmy@gmail.com
+ *         username:
+ *           type: string
+ *           default: Emmy
+ *         password:
+ *           type: string
+ *           default: qwert12345
+ */
 
 export const register = async (req: express.Request, res: express.Response) => {
     try{

@@ -30,10 +30,7 @@ const port = 7000
 
 server.listen(port, () => {
     console.log(`server running at http://localhost:${port}`);
-
-    swaggerDocs(app, port);
-
-
+    swaggerDocs(app, port)
 })
 
 const MONGO_URL = 'mongodb+srv://Sng:senga@cluster0.rrmemwy.mongodb.net/'

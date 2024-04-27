@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const title = getUrlParameter("title");
     const response = await fetch(`http://localhost:7000/blog/${title}`);
     const article = await response.json();
-    console.log(article);
-    console.log(currentIndex);
 
     function displayArticle() {
       detail.innerHTML = "";
