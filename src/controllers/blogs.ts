@@ -26,6 +26,17 @@ import express from 'express';
  *         Body:
  *           type: string
  *           default: A large yapping session.
+ *     ExistingBlog:
+ *       type: object
+ *       properties:
+ *         Title:
+ *           type: string
+ *         Image:
+ *           type: string
+ *         Intro:
+ *           type: string
+ *         Body:
+ *           type: string
  */
 
 export const createBlog = async (req: express.Request, res:express.Response) => {

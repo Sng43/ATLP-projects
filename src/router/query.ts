@@ -38,5 +38,27 @@ export default (router: express.Router) => {
      *           description: User logged in successfully     
      */
     router.post("/query/create", makeQuery);
+       /**
+     * @openapi
+     * paths:
+     *   '/query/{id}':
+     *     delete:
+     *       tags:
+     *         - Query
+     *       summary: Delete a query by ID
+     *       description: Deletes a query from the database using its ID.
+     *       parameters:
+     *         - in: path
+     *           name: id
+     *           required: true
+     *           description: The ID of the query to delete
+     *           schema:
+     *             type: string
+     *       responses:
+     *         '200':
+     *           description: qeury deleted successfully
+     *         '404':
+     *           description: query not found
+     */
     router.delete("/query/:id", eraseQuery);
 }
