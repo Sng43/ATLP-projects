@@ -3,6 +3,7 @@ const blogTitle = form["title"];
 const blogImage = form["image"];
 const blogIntro = form["intro"];
 const blogAll = form["all"];
+const editBtn = document.getElementById('#delete')
 
 async function fetchBlogData(title) {
   try {
@@ -36,6 +37,24 @@ async function editBlog(title, data) {
   }
 }
 
+async function deleteBlog (title,id){
+  const confirmation = confirm(`Are you sure you want to delete the blog ${title}`);
+
+  if(!confirmation){
+    console.log("User canceled deletion");
+  }else{
+    try{
+      await fetch(`http://localhost/7000/blog/${id}`,{
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+    }catch(error){
+      console.log(error)
+    }
+  }
+}
 const getUrlParameter = (name) => {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(name);
@@ -56,7 +75,9 @@ if (titleFromUrl) {
     }
   });
 }
-console.log(titleFromUrl);
+
+
+// console.log(titleFromUrl);
 const reader = new FileReader();
 
 blogImage.addEventListener("change", function () {
