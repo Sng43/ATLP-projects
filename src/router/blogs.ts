@@ -1,6 +1,5 @@
 import express from "express";
 import { createBlog, deleteBlog, getABlog, getAllBlogs, updateBlog } from "../controllers/blogs";
-import { isAuthenticated } from "../middlewares";
 
 
 export default (router: express.Router) => {
@@ -65,7 +64,7 @@ export default (router: express.Router) => {
      *         '200':
      *           description: Blog created successfully     
      */
-    router.post("/blogs/create", isAuthenticated ,createBlog);
+    router.post("/blogs/create",createBlog);
     /**
      * @openapi
      * paths:
@@ -88,7 +87,7 @@ export default (router: express.Router) => {
      *         '404':
      *           description: Blog not found
      */
-    router.delete("/blog/:id", isAuthenticated, deleteBlog);
+    router.delete("/blog/:id", deleteBlog);
     /**
      * @openapi
      * paths:
@@ -117,5 +116,5 @@ export default (router: express.Router) => {
      *         '404':
      *           description: Blog not found
      */
-    router.patch("/blog/:title", isAuthenticated, updateBlog);
+    router.patch("/blog/:title", updateBlog);
 }
