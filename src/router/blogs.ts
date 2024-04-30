@@ -44,7 +44,7 @@ export default (router: express.Router) => {
      *         '200':
      *           description: Successful response
      */
-    router.get("/blogs", isAuthenticated,getAllBlogs)
+    router.get("/blogs",getAllBlogs)
 
     /**
      * @openapi
