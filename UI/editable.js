@@ -3,12 +3,9 @@ const blogTitle = form["title"];
 const blogImage = form["image"];
 const blogIntro = form["intro"];
 const blogAll = form["all"];
-<<<<<<< HEAD
 const editBtn = document.getElementById('#delete')
-=======
 const edit = document.querySelector(".edit");
 const del = document.querySelector(".delete");
->>>>>>> origin/for_Messages
 
 async function fetchBlogData(title) {
   try {
@@ -43,13 +40,7 @@ async function editBlog(title, data) {
   }
 }
 
-<<<<<<< HEAD
-async function deleteBlog (title,id){
-  const confirmation = confirm(`Are you sure you want to delete the blog ${title}`);
-
-  if(!confirmation){
-    console.log("User canceled deletion");
-  }else{
+async function deleteBlog (id){
     try{
       await fetch(`http://localhost/7000/blog/${id}`,{
         method: 'DELETE',
@@ -61,8 +52,7 @@ async function deleteBlog (title,id){
       console.log(error)
     }
   }
-}
-=======
+
 async function deleteBlog(id) {
   try {
     const response = await fetch(`http://localhost:7000/blog/${id}`, {
@@ -79,7 +69,6 @@ async function deleteBlog(id) {
   }
 }
 
->>>>>>> origin/for_Messages
 const getUrlParameter = (name) => {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(name);
@@ -101,16 +90,13 @@ if (titleFromUrl) {
   });
 }
 
-<<<<<<< HEAD
 
-// console.log(titleFromUrl);
-=======
+// console.log(titleFromUrl)
 async function giveMeData(title) {
   const response = await fetch(`http://localhost:7000/blog/${title}`);
   return await response.json();
 }
 
->>>>>>> origin/for_Messages
 const reader = new FileReader();
 
 blogImage.addEventListener("change", function () {
