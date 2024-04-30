@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       heading.textContent = articleData.Title;
 
       const brief = document.createElement("p");
-      brief.textContent = articleData.Body;
+      brief.textContent = articleData.Intro;
 
       articleContainer.appendChild(heading);
       articleContainer.appendChild(brief);
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           articleData.Title
         )}&intro=${encodeURIComponent(
           articleData.Intro
-        )}&all=${encodeURIComponent(articleData.Body)}`;
+        )}&body=${encodeURIComponent(articleData.Body)}`;
         window.location.href = url;
       });
 
