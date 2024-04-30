@@ -1,7 +1,32 @@
 import express from "express";
 import { createBlog, deleteBlog, getABlog, getAllBlogs, updateBlog } from "../controllers/blogs";
 import { isAuthenticated } from "../middlewares";
-
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *      Blog:
+ *          type: object
+ *          required:
+ *              -Title
+ *              -Image
+ *              -Intro
+ *              -Body
+ *          properties:
+ *             Title:
+ *              type: string
+ *              default: Swagger Documentation.
+ *             Image:
+ *              type: string
+ *              default: (Image Url).
+ *             Intro:
+ *              type: string
+ *              default: This is an introduction of the blog.
+ *             Body:
+ *              type: string
+ *              default: This is some additional inforamtion of the blog.
+ *             
+ */
 
 export default (router: express.Router) => {
 

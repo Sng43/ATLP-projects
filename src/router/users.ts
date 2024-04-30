@@ -3,6 +3,32 @@ import express from "express";
 import { getAllUsers, deleteUser,updateUser } from "../controllers/users";
 import { isAuthenticated, isOwner } from "../middlewares";
 
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *      User:
+ *          type: object
+ *          properties:
+ *              username:
+ *                  type: string
+ *              email:
+ *                  type: string
+ *              authentication:
+ *                  type: object
+ *                  properties:
+ *                      password:
+ *                          type: string
+ *                      salt:
+ *                          type: string
+ *                      sessionToken:
+ *                          type: string
+ *          required:
+ *              - username
+ *              - email
+ *              - authentication
+ */
+
 export default (router: express.Router) => {
        /**
      * @openapi

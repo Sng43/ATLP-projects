@@ -52,7 +52,7 @@ export const login = async (req: express.Request, res: express.Response) => {
 
     }catch (error){
         console.log(error);
-        return res.status(400)
+        return res.status(400).json({message: 'unauthorized'})
     }
 }
 
@@ -108,6 +108,6 @@ export const register = async (req: express.Request, res: express.Response) => {
         return res.status(200).send(newUser)
     }catch (error){
         console.log(error)
-        return res.status(400)
+        return res.status(400).json({message: 'unauthorized'})
     }
 }

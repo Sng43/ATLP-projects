@@ -1,5 +1,32 @@
 import mongoose from "mongoose";
 
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *      Blog:
+ *          type: object
+ *          required:
+ *              -Title
+ *              -Image
+ *              -Intro
+ *              -Body
+ *          properties:
+ *             Title:
+ *              type: string
+ *              default: Swagger Documentation.
+ *             Image:
+ *              type: string
+ *              default: (Image Url).
+ *             Intro:
+ *              type: string
+ *              default: This is an introduction of the blog.
+ *             Body:
+ *              type: string
+ *              default: This is some additional inforamtion of the blog.
+ *             
+ */
+
 const blogsSchema = new mongoose.Schema({
     Title: {type: String, required: true},
     Image: {type: String, required: true},
