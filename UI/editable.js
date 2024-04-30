@@ -1,60 +1,157 @@
 const form = document.getElementById("content");
-const urlInfo = new URLSearchParams(window.location.search);
-const blogTitle = form.querySelector("#title");
-const blogImage = form.querySelector("#image");
-const blogIntro = form.querySelector("#intro");
-const blogBody = form.querySelector("#body");
+const blogTitle = form["title"];
+const blogImage = form["image"];
+const blogIntro = form["intro"];
+const blogAll = form["all"];
+const edit = document.querySelector(".edit");
+const del = document.querySelector(".delete");
 
-const updateArticle = async (title, image, intro, body) => {
+async function fetchBlogData(title) {
   try {
-    const response = await fetch(
-      `http://localhost:7000/blog/${encodeURIComponent(title)}`,
-      {
-        method: "PATCH",
+    const response = await fetch(`http://localhost:7000/blog/${title}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    return null;
+  }
+}
+
+async function editBlog(title, data) {
+  try {
+    const response = await fetch(`http://localhost:7000/blog/${title}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("There was a problem with your fetch operation:", error);
+    return null;
+  }
+}
+
+async function deleteBlog(title, id) {
+  const confirmation = confirm(
+    `Are you sure you want to delete the blog ${title}`
+  );
+
+  if (!confirmation) {
+    console.log("User canceled deletion");
+  } else {
+    try {
+      await fetch(`http://localhost/7000/blog/${id}`, {
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          Title: title,
-          Image: image,
-          Intro: intro,
-          Body: body,
-        }),
-      }
-    );
-    if (response.ok) {
-      console.log("Article updated successfully!");
-      window.location.assign("Admin-blog.html");
-    } else {
-      console.error("Failed to update article:", response.statusText);
+      });
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.error("Error updating article:", error);
   }
+}
+async function deleteBlog(id) {
+  try {
+    const response = await fetch(`http://localhost:7000/blog/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("There was a problem with your fetch operation:", error);
+    return null;
+  }
+}
+
+const getUrlParameter = (name) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
 };
+const titleFromUrl = getUrlParameter("title");
 
-blogTitle.value = urlInfo.get("Title");
-blogIntro.value = urlInfo.get("Intro");
-blogBody.value = urlInfo.get("Body");
+console.log(titleFromUrl);
 
-const picture = new FileReader();
+if (titleFromUrl) {
+  fetchBlogData(titleFromUrl).then((blogData) => {
+    if (blogData) {
+      blogTitle.value = blogData.Title;
+      // blogImage.value = blogData.Image;
+      blogIntro.value = blogData.Intro;
+      blogAll.value = blogData.Body;
+    } else {
+      console.error("Blog not found");
+    }
+  });
+}
+
+// console.log(titleFromUrl);
+async function giveMeData(title) {
+  const response = await fetch(`http://localhost:7000/blog/${title}`);
+  return await response.json();
+}
+const reader = new FileReader();
 
 blogImage.addEventListener("change", function () {
-  const pic = blogImage.files[0];
-  if (pic) {
-    picture.readAsDataURL(pic);
+  const file = blogImage.files[0];
+  if (file) {
+    reader.readAsDataURL(file);
   }
 });
 
-picture.onload = () => {
-  form.onsubmit = (e) => {
+console.log("yoo");
+del.addEventListener("click", async (e) => {
+  e.preventDefault();
+  console.log("Delete button Clicked");
+  if (confirm("Are you sure you want to delete this blog?")) {
+    fetchBlogData(titleFromUrl)
+      .then((blogData) => {
+        if (blogData) {
+          deleteBlog(blogData._id)
+            .then(() => {
+              alert("Blog deleted successfully");
+              window.location.assign("Admin-blog.html");
+              console.log(blogData);
+            })
+            .catch((error) => {
+              console.error("Error deleting blog:", error);
+              alert("Error deleting blog. Please try again later.");
+            });
+        } else {
+          console.error("Blog not found");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching blog data:", error);
+        alert("Error fetching blog data. Please try again later.");
+      });
+  }
+});
+
+reader.onload = function () {
+  edit.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const title = blogTitle.value;
-    const image = picture.result;
-    const intro = blogIntro.value;
-    const body = blogBody.value;
+    const data = {
+      Title: blogTitle.value,
+      Image: reader.result,
+      Intro: blogIntro.value,
+      Body: blogAll.value,
+    };
 
-    updateArticle(title, image, intro, body);
-  };
+    editBlog(titleFromUrl, data);
+
+    window.location.assign("Admin-blog.html");
+  });
 };
