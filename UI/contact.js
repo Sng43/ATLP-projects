@@ -3,6 +3,25 @@ const nam = document.getElementById("nam");
 const email = document.getElementById("email");
 const description = document.getElementById("description");
 
+const createQuery = async (data) => {
+  try {
+    const response = await fetch("http://localhost:7000/query/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      alert("Description sent");
+    } else {
+      console.error("Failed send:", response.statusText);
+    }
+  } catch (error) {
+    console.error("Error sending request:", error);
+  }
+};
+
 const setError = (element, message) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
@@ -35,41 +54,6 @@ const validPhone = (phone) => {
   return ph.test(phone);
 };
 
-const contact = (e) => {
-  e.preventDefault();
-
-  validateInputs();
-
-  if (form.querySelectorAll(".success").length === 3) {
-    const emailValue = email.value.trim();
-    const nameValue = nam.value.trim();
-    const descritpionValue = description.value.trim();
-
-    const new_data = {
-      email: emailValue,
-      name: nameValue,
-      descritpion: descritpionValue,
-    };
-
-    if (localStorage.getItem("proj") == null) {
-      localStorage.setItem("proj", "[]");
-    }
-
-    var old_data = JSON.parse(localStorage.getItem("proj"));
-
-    old_data.push(new_data);
-
-    var json = JSON.stringify(old_data);
-
-    localStorage.setItem("proj", json);
-    console.log(localStorage.setItem("proj", json));
-  }
-  
-  emailValue = ""
-  nameValue = ""
-  descritpionValue = ""
-};
-
 const validateInputs = () => {
   const emailValue = email.value.trim();
   const nameValue = nam.value.trim();
@@ -95,4 +79,28 @@ const validateInputs = () => {
   }
 };
 
-form.addEventListener("submit", contact);
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  validateInputs();
+
+  if (form.querySelectorAll(".success").length === 3) {
+    const emailValue = email.value.trim();
+    const nameValue = nam.value.trim();
+    const descriptionValue = description.value.trim();
+
+    var new_data = {
+      Name: nameValue,
+      Email: emailValue,
+      Description: descriptionValue,
+    };
+    try {
+      await createQuery(new_data);
+      email.value = "";
+      nam.value = "";
+      description.value = "";
+    } catch (error) {
+      console.error("Error sending query:", error);
+    }
+  }
+});
