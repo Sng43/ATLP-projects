@@ -16,7 +16,7 @@ const Blogs = () => {
             </div>
           </div>
           <button className="add">
-            <a href="login.html">Add article +</a>
+            <Link to ="/login">Add article +</Link>
           </button>
           <div className="blogs">
             {loading && <p>Loading...</p>}

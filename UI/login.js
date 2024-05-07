@@ -11,12 +11,10 @@ function login() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data); // Check the response from the server
+      console.log(data);
       if (data && data._id) {
-        // Successful login
         window.location.assign("Admin-dash.html");
       } else {
-        // Failed login
         document.getElementById("error").innerText =
           "Invalid email or password";
       }

@@ -34,7 +34,6 @@ const Navbar = () => {
               </div>
             </nav>
           </header>
-          <script src="script.js"></script>
         </div>
       </>
     );
