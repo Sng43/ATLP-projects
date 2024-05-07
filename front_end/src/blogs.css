@@ -120,6 +120,9 @@ padding: 10px 150px 5px 150px;
 .blog-preview p {
   margin: 30px;
 }
+.blog-preview a{
+  text-decoration: none;
+}
 .row {
   margin: 30px 0;
   display: flex;

@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 
-const useFetch = () => {
+const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null)
 
 
   useEffect(() =>{
-    fetch(`http://localhost:7000/blogs`)
+    fetch(url)
       .then((res) => {
+        // console.log(res)
         if (!res.ok) {
-            console.log(res)
           throw Error("Couldn't recieve data");
         }
-        res.json();
+        return res.json();
       })
       .then((data) => {
-        setLoading(false);
         setData(data);
+        setLoading(false);
         setError(null);
       })
       .catch((err) => {
@@ -25,7 +25,7 @@ const useFetch = () => {
         setLoading(false);
         setError(err.message);
       });
-  },[])
+  },[url])
     return {data, loading, error};
 }
  

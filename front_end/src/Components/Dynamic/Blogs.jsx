@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useFetch from "../Effects/useFetch";
 
 const Blogs = () => {
@@ -22,9 +23,11 @@ const Blogs = () => {
             {error && <p>{error}</p>}
             {blogs && blogs.map((blog) => (
               <div className="blog-preview" key = {blog.id}>
+                <Link to = {`/blogs/${blog.Title}`}>
                 <div className="blog-image"><img src={blog.Image} alt={blog.Title} /></div>
                 <h3>{blog.Title}</h3>
                 <p>{blog.Intro}</p>
+              </Link>
               </div>
             ))}
           </div>
